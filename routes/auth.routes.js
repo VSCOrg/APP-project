@@ -142,7 +142,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 });
 
 // GET /auth/logout
-router.get("/logout", isLoggedIn, (req, res) => {
+router.post("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       res.status(500).render("auth/logout", { errorMessage: err.message });
@@ -158,6 +158,22 @@ router.get("/user-profile", (req, res) => {
 const user =req.session.currentUser
 console.log(user);
   res.render("auth/user-profile", user);
+});
+
+// GET /auth/post-create
+router.get("/post-create", isLoggedIn, (req, res) => {
+  res.render("auth/post-create");
+});
+
+// GET /auth/post-edit
+router.get("/post-edit", isLoggedIn, (req, res) => {
+  res.render("auth/post-edit");
+});
+
+
+// GET /auth/post
+router.get("/post-edit", isLoggedIn, (req, res) => {
+  res.render("auth/post");
 });
 
 module.exports = router;
