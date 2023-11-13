@@ -152,5 +152,12 @@ router.get("/logout", isLoggedIn, (req, res) => {
     res.redirect("/");
   });
 });
+// Get user infos and display them
+
+router.get("/user-profile", (req, res) => {
+const user =req.session.currentUser
+console.log(user);
+  res.render("auth/user-profile", user);
+});
 
 module.exports = router;
