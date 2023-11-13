@@ -160,6 +160,11 @@ console.log(user);
   res.render("auth/user-profile", user);
 });
 
+// GET /auth/feed
+router.get("/feed", isLoggedIn, (req, res) => {
+  res.render("auth/feed");
+});
+
 // GET /auth/post-create
 router.get("/post-create", isLoggedIn, (req, res) => {
   res.render("auth/post-create");
