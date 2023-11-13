@@ -20,6 +20,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    foodPosts: [{ type: Schema.Types.ObjectId, ref: "Foodpost" }]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
