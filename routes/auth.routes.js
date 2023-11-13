@@ -17,11 +17,17 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 // GET /auth/signup
 router.get("/signup", isLoggedOut, (req, res) => {
-  res.render("auth/signup");
+  let data = {
+    layout: false
+  }
+  res.render("auth/signup", data);
 });
 
 // POST /auth/signup
 router.post("/signup", isLoggedOut, (req, res) => {
+  let data = {
+    layout: false
+  }
   const { username, email, password } = req.body;
 
   // Check that username, email, and password are provided
@@ -82,7 +88,10 @@ router.post("/signup", isLoggedOut, (req, res) => {
 
 // GET /auth/login
 router.get("/login", isLoggedOut, (req, res) => {
-  res.render("auth/login");
+  let data = {
+    layout: false
+  }
+  res.render("auth/login", data);
 });
 
 // POST /auth/login
@@ -134,7 +143,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           // Remove the password field
           delete req.session.currentUser.password;
 
-          res.redirect("/");
+          res.redirect("/auth/feed");
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
     })
@@ -160,20 +169,28 @@ console.log(user);
   res.render("auth/user-profile", user);
 });
 
+// GET /auth/feed
+router.get("/feed", (req, res) => {
+  res.render("auth/feed");
+});
+
 // GET /auth/post-create
-router.get("/post-create", isLoggedIn, (req, res) => {
+router.get("/post-create",(req, res) => {
   res.render("auth/post-create");
 });
 
 // GET /auth/post-edit
-router.get("/post-edit", isLoggedIn, (req, res) => {
+router.get("/post-edit", (req, res) => {
   res.render("auth/post-edit");
 });
 
 
 // GET /auth/post
-router.get("/post-edit", isLoggedIn, (req, res) => {
+router.get("/post", (req, res) => {
   res.render("auth/post");
 });
+
+
+
 
 module.exports = router;

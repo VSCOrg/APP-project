@@ -1,50 +1,12 @@
-<div id="post-form">
-    <h2>{{title}}</h2>
 
-    <form action="/post" method="POST">
-        <div>
-            <label for="foodpostTitle">username</label>
-            <input type="text" name="foodpostTitle">
-
-        </div>
-        
-        
-
-        <div>
-            <label for="foodType">Food Type:</label>
-            <select id="foodType" name="foodType">
-                <option value="omnivore">Omnivore</option>
-                <option value="vegan">Vegan</option>
-                <option value="vegetarian">Vegetarian</option>
-                <option value="gluten-free">Gluten-free</option>
-            </select>
-            <br>
-        </div>
-
-        <div>
-            <label for="description">Description</label>
-            <textarea id="content" name="content" required></textarea>
-        </div>
-
-        <div>
-            <label for="pick-up-time">Pick-up time range</label>
-            <input type="time" min="00:00" max="23:00" id="pick-up-time" name="pick-up-time" required>
-        </div>
-
-        <div>
-            <label for="expiring-date">Expiring Date</label>
-            <input type="date" min="" max="23:00" id="expiring-date" name="expiring-date" required>
-        </div>
-
-
-
-        <div>
-            <label for="image">Image URL:</label>
-            <input type="text" id="image" name="image"
-                value="https://images.media-allrecipes.com/images/75131.jpg"><br><br>
-        </div>
-        <button type="submit">CREATE</button>
-
-
-    </form>
+<div class="post-container">
+    <h2>Food Post Title</h2>
+    <h6 class="expire-date">Expiring date</h6>
+    
+    <p class="description">Description</p>
+    <p>location "(this.username.location)"</p>
+    <p>Pick-up Time</p>
+    <p>Food Type</p>
+    <img id="post-img" src="https://www.kikkoman.es/fileadmin/_processed_/7/9/csm_110-recipe-page-Poke-Bowl-with-Crispy-Chicken_desktop_ead65a9061.jpg" alt="Pokebowl">
+    
 </div>
