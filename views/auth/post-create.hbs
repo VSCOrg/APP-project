@@ -1,6 +1,6 @@
 <div id="post-form">
     <h2>{{title}}</h2>
-
+    <h5>Remember to add the ingredients to which others may be allergic or intolerant to at the end of your post!</h5>
     <form action="/post" method="POST">
         <div>
             <label for="foodpostTitle">username</label>
@@ -18,7 +18,6 @@
                 <option value="omnivore">Omnivore</option>
                 <option value="vegan">Vegan</option>
                 <option value="vegetarian">Vegetarian</option>
-                <option value="gluten-free">Gluten-free</option>
             </select>
             <br>
         </div>
@@ -36,6 +35,11 @@
         <div>
             <label for="expiring-date">Expiring Date</label>
             <input type="date" min="" max="23:00" id="expiring-date" name="expiring-date" required>
+        </div>
+
+        <div>
+            <label for="alergies">Alergies</label>
+            <input type="text" name="alergies" required>
         </div>
 
 
