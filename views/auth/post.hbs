@@ -30,8 +30,15 @@
 
         <div>
             <label for="pick-up-time">Pick-up time range</label>
-            <input type="time" id="pick-up-time" name="pick-up-time" required></input>
+            <input type="time" min="00:00" max="23:00" id="pick-up-time" name="pick-up-time" required>
         </div>
+
+        <div>
+            <label for="expiring-date">Expiring Date</label>
+            <input type="date" min="" max="23:00" id="expiring-date" name="expiring-date" required>
+        </div>
+
+
 
         <div>
             <label for="image">Image URL:</label>
