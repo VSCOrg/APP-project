@@ -185,6 +185,7 @@ router.post("/user-edit", (req, res) => {
   //console.log("hello", updatedUser);
 User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio }, { new: true })
     .then((userUpdated) => { console.log(userUpdated);
+      //update the session with the nnew user
       res.render("auth/user-profile", userUpdated) })
     .catch((error) => console.log("error!!", error));
 
