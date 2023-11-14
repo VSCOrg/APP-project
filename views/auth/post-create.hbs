@@ -1,56 +1,62 @@
+<link rel="stylesheet" href="/stylesheets/style.css" />
 <div id="post-form">
     <h2>{{title}}</h2>
     <h5>Remember to add the ingredients to which others may be allergic or intolerant to at the end of your post!</h5>
-    <form action="/post" method="POST">
-        <div>
-            <label for="foodpostTitle">username</label>
-            <input type="text" name="foodpostTitle">
+    <div > 
+        <form id="form-container" action="/post" method="POST">
+            <div>
+                <label for="foodpostTitle">Title</label>
+                <input type="text" name="foodpostTitle">
 
-        </div>
-        <div>
-            <label for="description">Description</label>
-            <textarea id="content" name="content" required></textarea>
-        </div>
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea id="content" name="content" required></textarea>
+            </div>
 
-        <div>
-            <label for="foodType">Food Type:</label>
-            <select id="foodType" name="foodType">
-                <option value="omnivore">Omnivore</option>
-                <option value="vegan">Vegan</option>
-                <option value="vegetarian">Vegetarian</option>
-            </select>
-            <br>
-        </div>
+            <div>
+                <label for="foodType">Food Type:</label>
+                <select id="foodType" name="foodType">
+                    <option value="omnivore">Omnivore</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="vegetarian">Vegetarian</option>
+                </select>
+                <br>
+            </div>
 
-        <div>
-            <label for="description">Description</label>
-            <textarea id="content" name="content" required></textarea>
-        </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea id="content" name="content" required></textarea>
+            </div>
 
-        <div>
-            <label for="pick-up-time">Pick-up time range</label>
-            <input type="time" min="00:00" max="23:00" id="pick-up-time" name="pick-up-time" required>
-        </div>
+            <div id="pick-up-time">
+                <label for="pick-up-time">Pick-up time range</label>
+                <p>From:</p>
+                <input type="time" min="00:00" max="23:00" id="pick-up-time" name="pick-up-time" required>
+                <p>To:</p>
+                <input type="time" min="00:00" max="23:00" id="pick-up-time" name="pick-up-time" required>
+            </div>
 
-        <div>
-            <label for="expiring-date">Expiring Date</label>
-            <input type="date" min="" max="23:00" id="expiring-date" name="expiring-date" required>
-        </div>
+            <div>
+                <label for="expiring-date">Expiring Date</label>
+                <input type="date" min="" max="23:00" id="expiring-date" name="expiring-date" required>
+            </div>
 
-        <div>
-            <label for="alergies">Alergies</label>
-            <input type="text" name="alergies" required>
-        </div>
-
-
-
-        <div>
-            <label for="image">Image URL:</label>
-            <input type="text" id="image" name="image"
-                value="https://images.media-allrecipes.com/images/75131.jpg"><br><br>
-        </div>
-        <button type="submit">CREATE</button>
+            <div>
+                <label for="alergies">Alergies</label>
+                <input type="text" name="alergies" required>
+            </div>
 
 
-    </form>
+
+            <div>
+                <label for="image">Image URL:</label>
+                <input type="text" id="image" name="image"
+                    value="https://images.media-allrecipes.com/images/75131.jpg"><br><br>
+            </div>
+            <button type="submit">CREATE</button>
+
+
+        </form>
+    </div>
 </div>

@@ -67,3 +67,23 @@ nav li {
 h1 {
   color: 15px;
 }
+
+#post-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
+}
+
+#form-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#pick-up-time{
+  display: flex;
+}

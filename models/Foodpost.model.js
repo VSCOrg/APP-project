@@ -9,6 +9,10 @@ const foodPostSchema = new Schema(
       unique: true,
       trim: true,
     },
+    foodImage: {
+      type: String,
+      required: true
+    },
     description: {
       type: String,
       required: true,
