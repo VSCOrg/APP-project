@@ -183,11 +183,10 @@ router.post("/user-edit", (req, res) => {
   //console.log("ciao", userToUpdate);
   const updatedUser = req.body;
   //console.log("hello", updatedUser);
-User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio }, { new: true })
+User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio }, { userlocation: updatedUser.userlocation }, { profilePicture: updatedUser.profilePicture }, { new: true })
     .then((userUpdated) => { console.log(userUpdated);
       res.render("auth/user-profile", userUpdated) })
     .catch((error) => console.log("error!!", error));
-
 })
 
 // GET /auth/feed
