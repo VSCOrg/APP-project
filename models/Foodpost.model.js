@@ -47,6 +47,6 @@ const foodPostSchema = new Schema(
   }
 );
 
-const Foodpost = model("", foodPostSchema);
+const Foodpost = model("Foodpost", foodPostSchema);
 
 module.exports = Foodpost;
