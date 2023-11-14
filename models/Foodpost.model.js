@@ -24,7 +24,7 @@ const foodPostSchema = new Schema(
       required: true,
     },
     pickUpTime: {
-      type: Time,
+      type: String,
       required: true,
     },
     pickUpPlace: {
