@@ -26,6 +26,7 @@ const userSchema = new Schema(
     },
     foodPosts: [{ type: Schema.Types.ObjectId, ref: "Foodpost" }],
     // Put-->update user con bio profile pic
+    //REMEMBER TO ADD FOODREQUIRED HEREEEE
     bio: {
       type: String,
       default: " ",
