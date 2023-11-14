@@ -10,6 +10,7 @@ const saltRounds = 10;
 
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
+const Foodpost = require("../models/Foodpost.model");
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -179,9 +180,9 @@ router.get("/user-edit", (req, res) => {
 // edit user
 router.post("/user-edit", (req, res) => {
   const userToUpdate = req.session.currentUser
-  console.log("ciao", userToUpdate);
+  //console.log("ciao", userToUpdate);
   const updatedUser = req.body;
-  console.log("hello", updatedUser);
+  //console.log("hello", updatedUser);
 User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio }, { new: true })
     .then((userUpdated) => { console.log(userUpdated);
       res.render("auth/user-profile", userUpdated) })
@@ -191,7 +192,14 @@ User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio }, { new: true }
 
 // GET /auth/feed
 router.get("/feed", (req, res) => {
-  res.render("auth/feed");
+  Foodpost.find()
+    .then(allthepostfromDB => {
+      console.log('>>>>> THIS IS YOU GET FROM THE DB :', allthepostfromDB);
+      res.render("auth/feed", { posts: allthepostfromDB });
+    })
+    .catch(error => {
+      console.log("error!!", error);
+    });
 });
 
 // GET /auth/post-create
