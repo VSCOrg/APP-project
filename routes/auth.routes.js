@@ -164,10 +164,30 @@ router.post("/logout", isLoggedIn, (req, res) => {
 // Get user infos and display them
 
 router.get("/user-profile", (req, res) => {
-const user =req.session.currentUser
-console.log(user);
+  const user = req.session.currentUser
+  console.log("hola", user);
   res.render("auth/user-profile", user);
 });
+
+//display page edit user
+
+router.get("/user-edit", (req, res) => {
+  const user = req.session.currentUser
+  res.render("auth/user-edit", user)
+});
+
+// edit user
+router.post("/user-edit", (req, res) => {
+  const userToUpdate = req.session.currentUser
+  console.log("ciao", userToUpdate);
+  const updatedUser = req.body;
+  console.log("hello", updatedUser);
+User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio }, { new: true })
+    .then((userUpdated) => { console.log(userUpdated);
+      res.render("auth/user-profile", userUpdated) })
+    .catch((error) => console.log("error!!", error));
+
+})
 
 // GET /auth/feed
 router.get("/feed", (req, res) => {
@@ -175,7 +195,7 @@ router.get("/feed", (req, res) => {
 });
 
 // GET /auth/post-create
-router.get("/post-create",(req, res) => {
+router.get("/post-create", (req, res) => {
   res.render("auth/post-create");
 });
 
