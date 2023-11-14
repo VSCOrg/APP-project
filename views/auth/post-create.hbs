@@ -2,7 +2,7 @@
 <div id="post-form">
     <h2>{{title}}</h2>
     <h5>Remember to add the ingredients to which others may be allergic or intolerant to at the end of your post!</h5>
-    <div > 
+    <div>
         <form id="form-container" action="/post" method="POST">
             <div>
                 <label for="foodpostTitle">Title</label>
@@ -47,15 +47,12 @@
                 <input type="text" name="alergies" required>
             </div>
 
-
-
             <div>
-                <label for="image">Image URL:</label>
-                <input type="text" id="image" name="image"
-                    value="https://images.media-allrecipes.com/images/75131.jpg"><br><br>
+                <label for="foodPostImage">Upload a nice picture about you!</label>
+                <input type="file" name="foodPostImage" id="foodPostImage" accept="image/*" required>
+                <br>
             </div>
             <button type="submit">CREATE</button>
-
 
         </form>
     </div>
