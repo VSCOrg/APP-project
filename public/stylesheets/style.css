@@ -198,3 +198,7 @@ nav ul li a.active{
     align-items: flex-end;
     flex-direction: column;
   }
+
+  .image{
+    max-width: 200px;
+  }

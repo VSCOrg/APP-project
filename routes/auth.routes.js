@@ -166,7 +166,6 @@ router.post("/logout", isLoggedIn, (req, res) => {
 
 router.get("/user-profile", (req, res) => {
   const user = req.session.currentUser
-  console.log("hola", user);
   res.render("auth/user-profile", user);
 });
 
@@ -183,9 +182,11 @@ router.post("/user-edit", (req, res) => {
   //console.log("ciao", userToUpdate);
   const updatedUser = req.body;
   //console.log("hello", updatedUser);
-User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio }, { new: true })
-    .then((userUpdated) => { console.log(userUpdated);
-      res.render("auth/user-profile", userUpdated) })
+  User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio }, { new: true })
+    .then((userUpdated) => {
+      console.log(userUpdated);
+      res.render("auth/user-profile", userUpdated)
+    })
     .catch((error) => console.log("error!!", error));
 
 })
@@ -205,25 +206,24 @@ router.get("/feed", (req, res) => {
 // GET /auth/post-create
 router.get("/post-create", (req, res) => {
 
-    res.render("auth/post-create");
+  res.render("auth/post-create");
 
 });
 
 router.post("/post-create", (req, res) => {
   const user = req.session.currentUser
   const { title, foodImage, description, expiringDate, pickUpTime, pickUpPlace, foodType, alergies } = req.body; /// from the form
-  
+
   console.log("this is the req.body", req.body)
   Foodpost.create(req.body)  //This already updates the Mongo database
-  .then((newFoodPost) =>{
-    console.log("new post created", newFoodPost)
-    // Foodpost.insertMany(newFoodPost)
-   return User.findByIdAndUpdate(user.id, { $push: { foodPosts: newFoodPost._id} })
-  })
-  .then((userUpdated) => { 
-    console.log(userUpdated)
-    res.redirect("/auth/feed");   //slash needed wehn redirecting
-  })
+    .then((newFoodPost) => {
+    
+      return User.findByIdAndUpdate(user.id, { $push: { foodPosts: newFoodPost._id } })  //return s
+    })
+    .then((userUpdated) => {
+      console.log(userUpdated)
+      res.redirect("/auth/feed");   //slash needed wehn redirecting
+    })
 });
 
 // GET /auth/post-edit
@@ -236,8 +236,6 @@ router.get("/post-edit", (req, res) => {
 router.get("/post", (req, res) => {
   res.render("auth/post");
 });
-
-
 
 
 module.exports = router;
