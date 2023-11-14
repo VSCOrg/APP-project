@@ -204,7 +204,26 @@ router.get("/feed", (req, res) => {
 
 // GET /auth/post-create
 router.get("/post-create", (req, res) => {
-  res.render("auth/post-create");
+
+    res.render("auth/post-create");
+
+});
+
+router.post("/post-create", (req, res) => {
+  const user = req.session.currentUser
+  const { title, foodImage, description, expiringDate, pickUpTime, pickUpPlace, foodType, alergies } = req.body; /// from the form
+  
+  console.log("this is the req.body", req.body)
+  Foodpost.create(req.body)
+  .then((newFoodPost) =>{
+    console.log("new post created", newFoodPost)
+    // Foodpost.insertMany(newFoodPost)
+   return User.findByIdAndUpdate(user.id, { $push: { foodPosts: newFoodPost._id} })
+  })
+  .then((userUpdated) => { 
+    console.log(userUpdated)
+    res.redirect("/auth/feed");   //slash needed wehn redirecting
+  })
 });
 
 // GET /auth/post-edit
