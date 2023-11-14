@@ -1,14 +1,14 @@
 <h1> This is {{this.username}}'s page</h1>
-<form action="/user-edit" method="POST">
+<form action="/auth/user-edit" method="POST">
     <div>
         <label for="description">Tell something about you!</label>
-        <textarea id="content" name="content"></textarea>
+        <textarea id="content" name="bio"></textarea>
         <br>
     </div>
     <div>
         <label for="userImage">Upload a nice picture about you!</label>
-        <input type="file" name="profilePicture" id="profilePicture" accept="image/*" required>
+      <!--  <input type="file" name="profilePicture" id="profilePicture" accept="image/*" required> -->
         <br>
     </div>
-    <button type="submit">Edit the user</button>
+    <button type="submit">Save changes</button>
 </form>
