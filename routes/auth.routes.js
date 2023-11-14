@@ -214,7 +214,7 @@ router.post("/post-create", (req, res) => {
   const { title, foodImage, description, expiringDate, pickUpTime, pickUpPlace, foodType, alergies } = req.body; /// from the form
   
   console.log("this is the req.body", req.body)
-  Foodpost.create(req.body)
+  Foodpost.create(req.body)  //This already updates the Mongo database
   .then((newFoodPost) =>{
     console.log("new post created", newFoodPost)
     // Foodpost.insertMany(newFoodPost)
