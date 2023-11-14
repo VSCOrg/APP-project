@@ -20,7 +20,16 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    foodPosts: [{ type: Schema.Types.ObjectId, ref: "Foodpost" }]
+    foodPosts: [{ type: Schema.Types.ObjectId, ref: "Foodpost" }],
+    // Put-->update user con bio profile pic
+    bio: {
+      type: String,
+      default: " ",
+    },
+    profilePicture: {
+      type: String,
+      default: "./public/images/cook.png",
+    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
