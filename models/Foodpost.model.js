@@ -27,6 +27,10 @@ const foodPostSchema = new Schema(
       type: Time,
       required: true,
     },
+    pickUpPlace: {
+      type: String,
+      required: true,
+    },
     foodType: {
       type: String,
       enum: ["omnivore", "vegan", "vegetarian"]
