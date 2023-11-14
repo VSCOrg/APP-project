@@ -20,6 +20,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    userlocation: {
+      type: String,
+      required: true,
+    },
     foodPosts: [{ type: Schema.Types.ObjectId, ref: "Foodpost" }],
     // Put-->update user con bio profile pic
     bio: {
@@ -28,7 +32,7 @@ const userSchema = new Schema(
     },
     profilePicture: {
       type: String,
-      default: "./public/images/cook.png",
+      default: "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-2048x1949-pq9uiebg.png",
     }
   },
   {
