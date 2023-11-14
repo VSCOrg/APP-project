@@ -10,6 +10,11 @@
 
             </div>
             <div>
+                <label for="foodPostImage">Upload a nice picture about you!</label>
+                <input type="file" name="foodPostImage" id="foodPostImage" accept="image/*" required>
+                <br>
+            </div>
+            <div>
                 <label for="description">Description</label>
                 <textarea id="content" name="content" required></textarea>
             </div>
@@ -22,11 +27,6 @@
                     <option value="vegetarian">Vegetarian</option>
                 </select>
                 <br>
-            </div>
-
-            <div>
-                <label for="description">Description</label>
-                <textarea id="content" name="content" required></textarea>
             </div>
 
             <div id="pick-up-time">
@@ -43,15 +43,11 @@
             </div>
 
             <div>
-                <label for="alergies">Alergies</label>
+                <label for="alergies">Contains:</label>
                 <input type="text" name="alergies" required>
             </div>
 
-            <div>
-                <label for="foodPostImage">Upload a nice picture about you!</label>
-                <input type="file" name="foodPostImage" id="foodPostImage" accept="image/*" required>
-                <br>
-            </div>
+            
             <button type="submit">CREATE</button>
 
         </form>

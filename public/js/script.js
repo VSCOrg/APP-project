@@ -2,3 +2,4 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("APP-project JS imported successfully!");
 });
+
