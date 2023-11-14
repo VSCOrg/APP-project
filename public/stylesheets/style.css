@@ -64,10 +64,21 @@ ul {
 
 nav ul li {
   font-size: 1.5em;
+  font-weight: 700;
 }
 
 nav ul li a:hover{
   color: aliceblue;
+}
+
+nav ul li form #logout-button{
+  font-weight: 700;
+}
+
+
+nav ul li #logout-button:hover{
+  color: aliceblue;
+  cursor: pointer;
 }
 
 nav ul li a.active{
@@ -132,6 +143,18 @@ nav ul li a.active{
   font-size: 16px;
 }
 
+
+#index-container{
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+=======
 .button {
   color: white;
   font-size: 16px;
@@ -156,3 +179,4 @@ nav ul li a.active{
   border-radius: 5px;
   border: none;
 }
+
