@@ -50,8 +50,16 @@ ul {
   background-color: rgba(101, 101, 167, 0);
 }
 
-nav li {
+nav ul li {
   font-size: 1.5em;
+}
+
+nav ul li a:hover{
+  color: aliceblue;
+}
+
+nav ul li a.active{
+  color:aliceblue;
 }
 
 .index-container{
@@ -87,3 +95,5 @@ h1 {
 #pick-up-time{
   display: flex;
 }
+
+
