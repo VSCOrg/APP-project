@@ -42,8 +42,8 @@ router.post("/user-edit", fileUploader.single('profilePicture'), (req, res) => {
     const userToUpdate = req.session.currentUser
     //console.log("ciao", userToUpdate);
     const updatedUser = req.body;
-    //console.log("hello", updatedUser);
-    User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio, profilePicture: req.file.path }, { new: true })
+    console.log("hello", updatedUser);
+    User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio, location: updatedUser.location, profilePicture: req.file.path }, { new: true })
         .then((userUpdated) => {
             console.log(userUpdated);
             req.session.currentUser = userUpdated
