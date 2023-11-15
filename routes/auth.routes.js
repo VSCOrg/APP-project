@@ -164,35 +164,6 @@ router.post("/logout", isLoggedIn, (req, res) => {
     res.redirect("/");
   });
 });
-// Get user infos and display them
-
-router.get("/user-profile", (req, res) => {
-  const user = req.session.currentUser
-  res.render("auth/user-profile", user);
-});
-
-//display page edit user
-
-router.get("/user-edit", (req, res) => {
-  const user = req.session.currentUser
-  res.render("auth/user-edit", user)
-});
-
-// edit user
-router.post("/user-edit", fileUploader.single('profilePicture'), (req, res) => {
-  const userToUpdate = req.session.currentUser
-  //console.log("ciao", userToUpdate);
-  const updatedUser = req.body;
-  //console.log("hello", updatedUser);
-  User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio, profilePicture: req.file.path }, { new: true })
-    .then((userUpdated) => {
-      console.log(userUpdated);
-      req.session.currentUser = userUpdated
-      res.redirect("/auth/user-profile")
-    })
-    .catch((error) => console.log("error!!", error));
-
-})
 
 // GET /auth/feed
 router.get("/feed", (req, res) => {
@@ -205,58 +176,5 @@ router.get("/feed", (req, res) => {
       console.log("error!!", error);
     });
 });
-
-// GET /auth/post-create
-router.get("/post-create", (req, res) => {
-
-  res.render("auth/post-create");
-
-});
-
-router.post("/post-create", fileUploader.single('foodImage'),(req, res) => {
-  const user = req.session.currentUser
-  const { title, foodImage, description, expiringDate, pickUpTime, pickUpPlace, foodType, alergies } = req.body; /// from the form
-  console.log("this is the req.body", req.body)
-  Foodpost.create(req.body)  //This already updates the Mongo database
-    .then((newFoodPost) => {
-      return User.findByIdAndUpdate(user._id, { $push: { foodPosts: newFoodPost._id } })  //return s
-    })
-    .then((userUpdated) => {
-      console.log(userUpdated)
-      res.redirect("/auth/feed");   //slash needed wehn redirecting
-    })
-    .catch((error) => {
-      console.log("error creating post", error);
-      res.status(500).send("Internal server error amigo")
-    })
-});
-
-// GET /auth/post-edit
-router.get("/post-edit", (req, res) => {
-  res.render("auth/post-edit");
-});
-
-
-// GET /auth/post
-router.get("/post", (req, res) => {
-  res.render("auth/post");
-});
-
-
-//Post / tupper-request
-router.post("/tupper-request", (req, res) => {
-  const { postId } = req.body
-  const user = req.session.currentUser
-  console.log(req.body);
-  User.findByIdAndUpdate(user._id, { $push: { requestedTuppers: postId } })
-    .then((userUpdated) => {
-      console.log(userUpdated);
-      res.redirect("/auth/user-profile")
-    })
-    .catch((error) => {
-      console.log("error creating post", error);
-      res.status(500).send("Internal server error amigo")
-    })
-})
 
 module.exports = router;
