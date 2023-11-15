@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sans:wght@300&family=Poppins:wght@200;400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,700&family=Roboto&display=swap');
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
-  
+
 }
 
 body {
@@ -14,7 +14,6 @@ body {
   height: 100%;
   font: 14px "Raleway", sans-serif;
   background-image: url('/images/background.jpg');
-  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -53,10 +52,10 @@ ul {
   list-style-type: none;
   gap: 2em;
   margin-right: 1.5em;
-  
+
 }
 
-#logout-form button{
+#logout-form button {
   border: 0px;
   font-size: 1em;
   background-color: rgba(101, 101, 167, 0);
@@ -67,21 +66,21 @@ nav ul li {
   color: aqua;
 }
 
-nav ul li a:hover{
+nav ul li a:hover {
   color: aliceblue;
 }
 
-nav ul li a.active{
-  color:aliceblue;
+nav ul li a.active {
+  color: aliceblue;
 }
 
-.index-container{
-  
-  font-family: 'Raleway', sans-serif; 
+.index-container {
+
+  font-family: 'Raleway', sans-serif;
 
 }
 
-#post-img{
+#post-img {
   max-width: 20em;
 }
 
@@ -93,7 +92,7 @@ nav ul li a.active{
   gap: 2em;
 }
 
-#form-container{
+#form-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,13 +100,14 @@ nav ul li a.active{
   gap: 1em;
 }
 
-#pick-up-time{
+#pick-up-time {
   display: flex;
 }
-#index-container{
+
+#index-container {
   width: 70%;
   height: 70%;
-  background-color:rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,19 +116,22 @@ nav ul li a.active{
   padding: 10px;
 }
 
-#title1part{
+#title1part {
   font-size: 60px;
   font-weight: bolder;
 }
-#title2part{
+
+#title2part {
   font-size: 100px;
   font-weight: bolder;
   line-height: 0.6em;
 }
-#join-now{
+
+#join-now {
   font-weight: bolder;
   font-size: 16px;
 }
+
 .catch-phrase {
   font-size: 16px;
 }
@@ -145,11 +148,12 @@ nav ul li a.active{
   border-radius: 5px;
   border: none;
 }
-.button:hover{
+
+.button:hover {
   color: black;
   font-size: 16px;
   font-weight: bolder;
-  background-color:rgb(255, 0, 0)55, 0, 0);
+  background-color: rgb(255, 255, 255);
   margin: 5px;
   padding: 5px;
   height: 32px;
@@ -158,10 +162,10 @@ nav ul li a.active{
   border: none;
 }
 
-#login-form{
+#login-form {
   width: 70%;
   height: 70%;
-  background-color:rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -170,36 +174,76 @@ nav ul li a.active{
   padding: 10px;
 }
 
-#form{ 
+#form {
   font-size: 16 px;
   width: 70%;
   height: 70%;
-  background-color:rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   border-radius: 2em;
-  padding: 10px;}
+  padding: 10px;
+}
 
-  .form-login-signup{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+.form-login-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-  .first-pages-logos{
-    height: 80px;
-  }
+.first-pages-logos {
+  height: 80px;
+}
 
-  .fill-form{
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    flex-direction: column;
-  }
+.fill-form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
 
-  .image{
-    max-width: 200px;
-  }
+.food-image {
+  max-width: 200px;
+  border-radius: 2em;
+}
+
+.feed-container {
+  width: 70%;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 2em;
+  padding: 30px;
+}
+
+.food {
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 2em;
+  padding: 15px;
+  margin: 15px;
+}
+
+.food-post-title {
+  font-size: 2em;
+}
+
+.food-post-details {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.food-post-text {
+  padding: 10px;
+}
