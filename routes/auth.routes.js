@@ -16,6 +16,9 @@ const Foodpost = require("../models/Foodpost.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
+
+const fileUploader = require('../config/cloudinary.config');
+
 // GET /auth/signup
 router.get("/signup", isLoggedOut, (req, res) => {
   let data = {
@@ -29,10 +32,10 @@ router.post("/signup", isLoggedOut, (req, res) => {
   let data = {
     layout: false
   }
-  const { username, email, password } = req.body;
+  const { username, email, location, password } = req.body;
 
   // Check that username, email, and password are provided
-  if (username === "" || email === "" || password === "") {
+  if (username === "" || email === "" || location === "" || password === "") {
     res.status(400).render("auth/signup", {
       errorMessage:
         "All fields are mandatory. Please provide your username, email and password.",
@@ -68,7 +71,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
     .then((salt) => bcrypt.hash(password, salt))
     .then((hashedPassword) => {
       // Create a user and save it in the database
-      return User.create({ username, email, password: hashedPassword });
+      return User.create({ username, email, location, password: hashedPassword });
     })
     .then((user) => {
       res.redirect("/auth/login");
@@ -97,10 +100,10 @@ router.get("/login", isLoggedOut, (req, res) => {
 
 // POST /auth/login
 router.post("/login", isLoggedOut, (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { username, email, location, password } = req.body;
 
   // Check that username, email, and password are provided
-  if (username === "" || email === "" || password === "") {
+  if (username === "" || email === "" || location === "" || password === "") {
     res.status(400).render("auth/login", {
       errorMessage:
         "All fields are mandatory. Please provide username, email and password.",
@@ -177,15 +180,15 @@ router.get("/user-edit", (req, res) => {
 });
 
 // edit user
-router.post("/user-edit", (req, res) => {
+router.post("/user-edit", fileUploader.single('profilePicture'), (req, res) => {
   const userToUpdate = req.session.currentUser
   //console.log("ciao", userToUpdate);
   const updatedUser = req.body;
   //console.log("hello", updatedUser);
-  User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio }, { new: true })
+  User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio, profilePicture: req.file.path }, { new: true })
     .then((userUpdated) => {
       console.log(userUpdated);
-      res.render("auth/user-profile", userUpdated)
+      res.redirect("/auth/user-profile")
     })
     .catch((error) => console.log("error!!", error));
 
@@ -217,12 +220,16 @@ router.post("/post-create", (req, res) => {
   console.log("this is the req.body", req.body)
   Foodpost.create(req.body)  //This already updates the Mongo database
     .then((newFoodPost) => {
-    
-      return User.findByIdAndUpdate(user.id, { $push: { foodPosts: newFoodPost._id } })  //return s
+
+      return User.findByIdAndUpdate(user._id, { $push: { foodPosts: newFoodPost._id } })  //return s
     })
     .then((userUpdated) => {
       console.log(userUpdated)
       res.redirect("/auth/feed");   //slash needed wehn redirecting
+    })
+    .catch((error) => {
+      console.log("error creating post", error);
+      res.status(500).send("Internal server error amigo")
     })
 });
 
@@ -237,5 +244,21 @@ router.get("/post", (req, res) => {
   res.render("auth/post");
 });
 
+
+//Post / tupper-request
+router.post("/tupper-request", (req, res) => {
+  const { postId } = req.body
+  const user = req.session.currentUser
+  console.log(req.body);
+  User.findByIdAndUpdate(user._id, { $push: { requestedTuppers: postId } })
+    .then((userUpdated) => {
+      console.log(userUpdated);
+      res.redirect("/auth/user-profile")
+    })
+    .catch((error) => {
+      console.log("error creating post", error);
+      res.status(500).send("Internal server error amigo")
+    })
+})
 
 module.exports = router;

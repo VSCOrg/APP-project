@@ -1,7 +1,7 @@
 <h2>Hi, {{this.username}} ✍️ </h2>
 <br>
 
-<form class="user-edit" action="/auth/user-edit" method="POST">
+<form class="user-edit" action="/auth/user-edit" method="POST" enctype="multipart/form-data">
     <div class="user-edit-container">
 
         <!-- The mail and username is Non-editable -->
@@ -13,7 +13,7 @@
         <!-- Display current user image -->
         <img height="60px" width="60px" src="{{this.profilePicture}}" alt="Profile Picture"><br>
         <!-- Input for a new image (if you want to allow image update) -->
-        <input type="file" name="profilePicture" id="profilePicture" accept="image/*">
+        <input type="file" name="profilePicture" id="profilePicture">
         <br><br>
        {{!--  <!-- Editable username -->
         <label for="username"><strong>Username:</strong></label><br>
