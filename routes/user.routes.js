@@ -15,8 +15,17 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 // Get user infos and display them
 router.get("/user-profile", (req, res) => {
     const user = req.session.currentUser
-    res.render("user/user-profile", user);
+   
+        Foodpost.find({creator: user._id})
+        .then((userPosts) =>{
+            console.log(userPosts)
+            res.render("user/user-profile", {user, userPosts });
+            
+        })
+
 });
+
+
 
 
 //display page edit user
@@ -25,6 +34,8 @@ router.get("/user-edit", (req, res) => {
     const user = req.session.currentUser
     res.render("user/user-edit", user)
 });
+
+
 
 // edit user
 router.post("/user-edit", fileUploader.single('profilePicture'), (req, res) => {
