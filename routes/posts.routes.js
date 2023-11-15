@@ -31,9 +31,13 @@ router.post("/post-create", fileUploader.single('foodImage'), (req, res) => {
         description: postCreated.description,
         expiringDate: postCreated.expiringDate,
         pickUpTime: postCreated.pickUpTime,
+
+        pickUpPlace: postCreated.pickUpPlace,
         foodType: postCreated.foodType,
-        alergies: postCreated.alergies
-    })  /
+        alergies: postCreated.alergies,
+        creator: user._id
+    })  
+
         .then((newFoodPost) => {
             return User.findByIdAndUpdate(user._id, { $push: { foodPosts: newFoodPost._id } })  //return s
         })

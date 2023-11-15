@@ -6,7 +6,7 @@
       <h2>{{this.title}}</h2>
       <p>This food expires on: {{this.expiringDate}}</p>
       <p>Location: {{this.pickUpPlace}}</p>
-      <p>User: {{this.creator}} </p>
+      <p>User: {{this.creator.username}} </p>
       <form id="request-tupper-button" action="/auth/tupper-request" method="POST">
         <input type="hidden" name="postId" value="{{this._id}}">
         <button type="submit">I'll take it</button>

@@ -168,6 +168,7 @@ router.post("/logout", isLoggedIn, (req, res) => {
 // GET /auth/feed
 router.get("/feed", (req, res) => {
   Foodpost.find()
+  .populate("creator")
     .then(allthepostfromDB => {
       console.log('>>>>> THIS IS YOU GET FROM THE DB :', allthepostfromDB);
       res.render("auth/feed", { posts: allthepostfromDB });
