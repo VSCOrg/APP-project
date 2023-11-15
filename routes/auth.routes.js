@@ -213,14 +213,12 @@ router.get("/post-create", (req, res) => {
 
 });
 
-router.post("/post-create", (req, res) => {
+router.post("/post-create", fileUploader.single('foodImage'),(req, res) => {
   const user = req.session.currentUser
   const { title, foodImage, description, expiringDate, pickUpTime, pickUpPlace, foodType, alergies } = req.body; /// from the form
-
   console.log("this is the req.body", req.body)
   Foodpost.create(req.body)  //This already updates the Mongo database
     .then((newFoodPost) => {
-
       return User.findByIdAndUpdate(user._id, { $push: { foodPosts: newFoodPost._id } })  //return s
     })
     .then((userUpdated) => {
