@@ -183,6 +183,7 @@ nav ul li a.active {
   width: 70%;
   height: 70%;
   background-color: rgba(255, 255, 255, 0.6);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -217,11 +218,48 @@ nav ul li a.active {
 .feed-container {
   width: 70%;
   background-color: rgba(255, 255, 255, 0.6);
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   border-radius: 2em;
+
+  padding: 10px;
+}
+
+.form-login-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.first-pages-logos {
+  height: 80px;
+}
+
+.fill-form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.food-image {
+  max-width: 200px;
+  border-radius: 2em;
+}
+
+.feed-container {
+  width: 70%;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 2em;
+
   padding: 30px;
 }
 
@@ -252,8 +290,9 @@ nav ul li a.active {
   padding: 10px;
 }
 .general-feed-container {
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  display: flex;
-}
+  
+
