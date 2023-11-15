@@ -16,7 +16,6 @@ const Foodpost = require("../models/Foodpost.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-
 const fileUploader = require('../config/cloudinary.config');
 
 // GET /auth/signup
@@ -188,6 +187,7 @@ router.post("/user-edit", fileUploader.single('profilePicture'), (req, res) => {
   User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio, profilePicture: req.file.path }, { new: true })
     .then((userUpdated) => {
       console.log(userUpdated);
+      req.session.currentUser = userUpdated
       res.redirect("/auth/user-profile")
     })
     .catch((error) => console.log("error!!", error));
