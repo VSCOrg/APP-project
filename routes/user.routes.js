@@ -15,12 +15,12 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 // Get user infos and display them
 router.get("/user-profile", (req, res) => {
     const user = req.session.currentUser
-   
-        Foodpost.find({creator: user._id})
-        .then((userPosts) =>{
+
+    Foodpost.find({ creator: user._id })
+        .then((userPosts) => {
             console.log(userPosts)
-            res.render("user/user-profile", {user, userPosts });
-            
+            res.render("user/user-profile", { user, userPosts });
+
         })
 
 });
@@ -40,10 +40,35 @@ router.get("/user-edit", (req, res) => {
 // edit user
 router.post("/user-edit", fileUploader.single('profilePicture'), (req, res) => {
     const userToUpdate = req.session.currentUser
-    //console.log("ciao", userToUpdate);
+
     const updatedUser = req.body;
-    //console.log("hello", updatedUser);
-    User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio, profilePicture: req.file.path }, { new: true })
+    let newProfilePicture = userToUpdate.profilePicture
+    let newBio = userToUpdate.bio
+    let newLocation = userToUpdate.location
+
+    //Verify if a new image file was uploaded
+    if(req.file){
+        newProfilePicture = req.file.path
+    } else if (!req.file) {
+        newProfilePicture = userToUpdate.profilePicture
+    }
+
+    if(updatedUser.bio){
+        newBio = updatedUser.bio
+    } else if (!updatedUser.bio) {
+        newProfilePicture = userToUpdate.profilePicture
+    }
+    
+    if(updatedUser.location){
+        newLocation = updatedUser.location
+    } else if (!updatedUser.location) {
+        newProfilePicture = userToUpdate.profilePicture
+    }
+
+    User.findByIdAndUpdate(
+        userToUpdate._id,
+        { bio: updatedUser.bio, location: updatedUser.location, newProfilePicture },
+        { new: true })
         .then((userUpdated) => {
             console.log(userUpdated);
             req.session.currentUser = userUpdated
