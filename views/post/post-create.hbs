@@ -1,26 +1,36 @@
 <link rel="stylesheet" href="/stylesheets/style.css" />
-<div id="post-form">
-    <h2>{{title}}</h2>
-    <h4>Remember to add the ingredients to which others may be allergic or intolerant to, at the end of your post!</h4>
-    <div>
+<br>
+<div class="general-feed-container">
+    <div id="post-form">
+        <img class="first-pages-logos" src="/images/tupper.png">
+        <br>
+
+        <h2>{{title}}</h2>
+        <h4>Remember to add the ingredients to which others may be allergic or intolerant to, at the end of your
+            post!
+        </h4>
+        <br>
         <form id="form-container" action="/post/post-create" method="POST" enctype="multipart/form-data">
             <div>
-                <label for="title">Title</label>
-                <input type="text" name="title">
+                <div>
+                    <label for="title"><b>Title</b></label>
+                    <input type="text" name="title">
 
-            </div>
-            <div>
-                <label for="foodImage">Upload a nice picture about you!</label>
-                <input type="file" name="foodImage" id="food-image" required>
+                </div>
                 <br>
-            </div>
-            <div>
-                <label for="description">Description</label>
+                <div>
+                    <label for="foodImage"> <b>picture</b></label>
+                    <input type="file" name="foodImage" id="food-image" required>
+                    <br>
+                </div>
+                <br>
+                <label for="description"><b>Description</b></label>
                 <textarea id="content" name="description" required></textarea>
             </div>
 
+
             <div>
-                <label for="foodType">Food Type:</label>
+                <label for="foodType"><b>Food Type:</b></label>
                 <select id="food-type" name="foodType">
                     <option value="omnivore">Omnivore</option>
                     <option value="vegan">Vegan</option>
@@ -30,32 +40,33 @@
             </div>
 
             <div>
-                <label for="expiringDate">Expiring Date</label>
+                <label for="expiringDate"><b>Expiring Date</b></label>
                 <input type="date" id="expiring-date" name="expiringDate" required>
             </div>
 
             <div id="pickUpTime">
-                <label for="pickUpTime">Pick-up time range</label>
+                <label for="pickUpTime"><b>Pick-up time range</b></label>
                 <p>Type a time range suitable for you in 24h format</p>
                 <input type="text" id="pick-up-time" name="pickUpTime" required>
-                
-                
-               <!-- <input type="time" min="00:00" max="23:00" id="pick-up-time" name="pickUpTime" required> -->
+
+
+                <!-- <input type="time" min="00:00" max="23:00" id="pick-up-time" name="pickUpTime" required> -->
             </div>
 
             <div>
-                <label for="pickUpPlace">Pick up place</label>
+                <label for="pickUpPlace"><b>Pick up place</b></label>
                 <input type="text" id="pick-up-place" name="pickUpPlace" required>
             </div>
 
             <div>
-                <label for="alergies">Contains:</label>
+                <label for="alergies"><b>Contains:</b></label>
                 <input type="text" name="alergies" required>
             </div>
+            <br>
 
-            
-            <button type="submit">CREATE</button>
+            <button type="submit" class="button">CREATE</button>
 
         </form>
     </div>
+</div>
 </div>
