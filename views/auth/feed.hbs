@@ -1,16 +1,24 @@
+<br>
 <h1>This is the Feed Posts</h1>
+<br>
 <div class="feed-container">
   {{#each posts}}
-    <div class="food">
-      <img class="image" src="{{this.foodImage}}" alt="{{this.name}}">
-      <h2>{{this.title}}</h2>
+  <div class="food">
+    <div class="food-post-details">
+      <h2 class="food-post-title">{{this.title}}</h2>
+      <br>
+      <div class="food-post-text">
       <p>This food expires on: {{this.expiringDate}}</p>
       <p>Location: {{this.pickUpPlace}}</p>
       <p>User: {{this.creator.username}} </p>
       <form id="request-tupper-button" action="/auth/tupper-request" method="POST">
         <input type="hidden" name="postId" value="{{this._id}}">
-        <button type="submit">I'll take it</button>
-    </form>
+        </div>
+        <br>
+        <button type="submit" class="button">I'll take it</button>
     </div>
+    <img class="food-image" src="{{this.foodImage}}" alt="{{this.name}}">
+    </form>
+  </div>
   {{/each}}
 </div>
