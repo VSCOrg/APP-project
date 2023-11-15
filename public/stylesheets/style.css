@@ -247,3 +247,9 @@ nav ul li a.active {
 .food-post-text {
   padding: 10px;
 }
+.general-feed-container {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
