@@ -35,7 +35,6 @@ router.post("/post-create", fileUploader.single('foodImage'), (req, res) => {
 
         pickUpPlace: postCreated.pickUpPlace,
         foodType: postCreated.foodType,
-    }) 
         alergies: postCreated.alergies,
         creator: user._id
     })  
