@@ -9,9 +9,9 @@
         <h2 class="food-post-title">{{this.title}}</h2>
         <br>
         <div class="food-post-text">
-          <p><B>This food expires on: </B>{{this.expiringDate}}</p>
+          <p><B>Expiration Date:</B>{{this.expiringDate}}</p>
           <p><B>Location:</B> {{this.pickUpPlace}}</p>
-          <p><B>Chef:</B> {{this.creator.username}} </p>
+          <p><B>User:</B> {{this.creator.username}} </p>
           <form id="request-tupper-button" action="/auth/tupper-request" method="POST">
             <input type="hidden" name="postId" value="{{this._id}}">
         </div>
