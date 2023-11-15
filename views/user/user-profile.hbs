@@ -2,8 +2,7 @@
 <div class="nav-user">
     <br>
     <h1><img height="60px" width="60px" src="{{user.profilePicture}}"> Hi, {{user.username}} 🖖 </h1>
-    <p>Here, you can <a href="/user/user-edit"> <button> Edit profile</button></a> or <a href="/post/post-create">
-            <button> Share Tupper</button></a> </p>
+    <p>Here, you can <a href="/user/user-edit"> <button> Edit profile</button></a>
 </div>
 
 <br>
@@ -18,7 +17,7 @@
 {{!-- this is a div TO SHOW USER POSTS --}}
 <div class="tuppers-shared">
    
-    <h2>Tuppers you shared | {{!-- horizontal scrolling → → → → → → → → --}} </h2>
+    <h2>Tuppers you shared :{{!-- horizontal scrolling → → → → → → → → --}} </h2><br>
      {{#each userPosts}}
      <h3>{{this.title}}</h3>
     <img height="200px" width="200px" src="{{this.foodImage}}" alt="your shared tuppers">
@@ -30,7 +29,7 @@
 <br>
 {{!-- this is a div TO SHOW THE FOOD REQUIRED FROM OTHER USERS --}}
 <div class="tuppers-tuppered">
-    <h2>All you have Tuppered | {{!-- horizontal scrolling → → → → → → → → --}} </h2>
+    <h2>All you have Tuppered :{{!-- horizontal scrolling → → → → → → → → --}} </h2><br>
     <img height="200px" width="200px"
         src="https://uvn-brightspot.s3.amazonaws.com/assets/vixes/btg/donde-esta-mi-hamburguesa-15-gifs-de-homero-disfrutando-el-placer-de-comer-4.gif"
         alt="">
