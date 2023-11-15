@@ -26,6 +26,7 @@ router.post("/post-create", fileUploader.single('foodImage'), (req, res) => {
     const user = req.session.currentUser
     const postCreated = req.body
     const dayFormated = new Date(postCreated.expiringDate)
+    console.log(dayFormated.getDay());
     Foodpost.create({
         title: postCreated.title,
         foodImage: req.file.path,
@@ -43,7 +44,7 @@ router.post("/post-create", fileUploader.single('foodImage'), (req, res) => {
             return User.findByIdAndUpdate(user._id, { $push: { foodPosts: newFoodPost._id } })  //return s
         })
         .then((userUpdated) => {
-            console.log(userUpdated)
+            //console.log(userUpdated)
             res.redirect("/auth/feed");   //slash needed wehn redirecting
         })
         .catch((error) => {
@@ -70,10 +71,10 @@ router.get("/post", (req, res) => {
 router.post("/tupper-request", (req, res) => {
     const { postId } = req.body
     const user = req.session.currentUser
-    console.log(req.body);
+    //console.log(req.body);
     User.findByIdAndUpdate(user._id, { $push: { requestedTuppers: postId } })
         .then((userUpdated) => {
-            console.log(userUpdated);
+           // console.log(userUpdated);
             res.redirect("/user/user-profile")
         })
         .catch((error) => {
