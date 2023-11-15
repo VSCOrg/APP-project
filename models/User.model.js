@@ -20,13 +20,14 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    userlocation: {
+    location: {
       type: String,
       required: true,
     },
     foodPosts: [{ type: Schema.Types.ObjectId, ref: "Foodpost" }],
     // Put-->update user con bio profile pic
-    //REMEMBER TO ADD FOODREQUIRED HEREEEE
+    requestedTuppers: [{ type: Schema.Types.ObjectId, ref: "Foodpost" }],
+
     bio: {
       type: String,
       default: " ",
