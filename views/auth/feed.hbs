@@ -13,7 +13,7 @@
           <p><B>Location:</B> {{this.pickUpPlace}}</p>
           <p><B>User:</B> {{this.creator.username}} </p>
           <form id="request-tupper-button" action="/auth/tupper-request" method="POST">
-            <input type="hidden" name="postId" value="{{this._id}}">
+            <input type="hidden" name="post" value="{{this.posts}}">
         </div>
         <br>
         <button type="submit" class="button">I'll take it</button>
