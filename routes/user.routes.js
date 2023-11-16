@@ -26,7 +26,7 @@ router.get("/user-profile", (req, res) => {
     Promise.all([findPost, findUser])
         .then((values) => {
             // res.send(values[1])
-            res.render("user/user-profile", { userPosts: values[0], userRequests: values[1].requestedTuppers });
+            res.render("user/user-profile", { userPosts: values[0], userRequests: values[1].requestedTuppers, user });
         })
 
 });
@@ -76,9 +76,10 @@ router.post("/user-edit", fileUploader.single('profilePicture'), (req, res) => {
         { bio: updatedUser.bio, location: updatedUser.location, profilePicture: newProfilePicture },
         { new: true })
         .then((userUpdated) => {
-            console.log(userUpdated);
+            //console.log(user.profilePicture);
             req.session.currentUser = userUpdated
             res.redirect("/user/user-profile")
+            console.log(userUpdated)
         })
         .catch((error) => console.log("error!!", error));
 
