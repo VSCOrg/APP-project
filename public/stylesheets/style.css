@@ -31,33 +31,43 @@ body {
   flex-direction: column;
 }
 
-
-nav {
-  background-color: black;
+.navbar {
   display: flex;
-  align-items: center;
-  justify-content: end;
-  height: 4em;
+  justify-content: space-between;
+  background-color: black;
   border-radius: 2em;
-}
+  height: 4em;
+} 
 
 ul {
   display: flex;
   align-items: center;
+  width: 90%;
   justify-content: end;
   list-style-type: none;
   gap: 2em;
   margin-right: 1.5em;
+  
 
+}
+#home-button{
+  margin-left: 25px; 
+  margin-top: 15px;
+  
+  font-size: 1.5em;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  background-color: black;
+  border: none;
+  
 }
 
 #logout-form button {
   border: 0px;
-  font-size: 1em;
+  font-size: 1.5em;
   background-color: rgba(101, 101, 167, 0);
 }
 .nav-welcome {
-
   font-size: 1.5em;
   color: rgb(255, 255, 255);
   text-decoration: none;

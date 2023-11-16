@@ -11,11 +11,11 @@
 <body>
   <main>
     <nav class="navbar">
+        {{#if displayHome}}
+        <a id="home-button" href="/auth/feed">Home</a>
+        {{/if}}  
       <ul>
 
-        {{#if displayHome}}
-        <li><a class="nav-elements" href="/auth/feed">Home</a></li>
-        {{/if}}  
         {{#if user}}
         <li class="nav-welcome">Welcome, {{user.username}}!</li>
         {{/if}}
