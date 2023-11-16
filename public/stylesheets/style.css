@@ -222,26 +222,26 @@ nav ul li a.active {
 }
 
 .feed-container {
-  width: 70%;
-  background-color: rgba(255, 255, 255, 0.6);
+  width: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   border-radius: 2em;
   padding: 30px;
+  flex-wrap: wrap;
 }
 
 .food {
-  width: 80%;
-  background-color: rgba(255, 255, 255, 0.4);
+  width: 500px;
+  background-color: rgba(255, 255, 255, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   border-radius: 2em;
   padding: 15px;
-  margin: 15px;
+  margin: 20px;
 }
 
 .food-post-title {
@@ -286,14 +286,14 @@ nav ul li a.active {
   margin: 15px;
   padding: 10px;
   width: 300px;
-
-
   height: 220px;
-
   border-radius: 2em;
 }
+.catch-phrese-feed {
+  font-size: 35px;
+}
 
-@media  (max-width: 450px) {
+/*@media  (max-width: 450px) {
   .button {
       height: 100px;
       width: 360px;
@@ -325,4 +325,4 @@ nav ul li a.active {
     height: 180px;
   }
 
-}
+}*/
