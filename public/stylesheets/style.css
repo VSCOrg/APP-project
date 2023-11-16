@@ -9,7 +9,6 @@
 }
 
 body {
-  padding: 50px;
   width: 100%;
   height: 100%;
   font: 14px "Raleway", sans-serif;
@@ -18,11 +17,10 @@ body {
 }
 
 .first-pages-body {
-  padding: 50px;
   width: 100%;
   height: 100%;
   font: 16px "Raleway", sans-serif;
-  background-image: url("/images/background.jpg");
+  background-image: url("/images/backgroundnew.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -47,7 +45,7 @@ ul {
   list-style-type: none;
   gap: 2em;
   margin-right: 1.5em;
-  
+
 
 }
 #home-button{
@@ -155,6 +153,7 @@ nav ul li a.active {
 
 .catch-phrase {
   font-size: 16px;
+  
 }
 
 .button {
@@ -311,6 +310,9 @@ nav ul li a.active {
 }
 .catch-phrese-feed {
   font-size: 35px;
+  color: black;
+  border-radius: 0.7em;
+  padding: 10px;
 }
 
 .feed-container-user {
@@ -342,36 +344,72 @@ nav ul li a.active {
   flex-direction: row;
 }
 
-/*@media  (max-width: 450px) {
+@media  (max-width: 450px) {
   .button {
-      height: 100px;
-      width: 360px;
+      height: 50px;
+      width: 200px;
       margin: 20px;
-      font-size: 40px;
+      font-size: 25px;
       border-radius: 30px;
-      background-color: brown;
+      background-color:black;
   }
   #join-now {
-    font-size: 40px;
+    font-size: 25px;
   }
   .catch-phrase {
-    font-size: 40px;
+    font-size: 25px;
   }
   #title1part {
-    font-size: 80px;
+    font-size: 37px;
   }
   
   #title2part {
-    font-size: 140px;
+    font-size: 60px;
   }
 
   #index-container {
     width: 85%;
-    border-radius: 80px;
+    height: 90%;
+    border-radius: 30px;
     
   }
   .first-pages-logos{
     height: 180px;
   }
-
-}*/
+.food{
+  width: 330px;
+}
+.food-image{
+  width: 130px;
+  height: 130px;
+}
+.food {
+  flex-direction: column-reverse;
+}
+food-post-title{
+  font-size: 1.8em;
+}
+#logout-form button {
+  font-size: 1em;
+}
+.nav-elements{
+  font-size: 1em;
+}
+.nav-welcome{
+  font-size: 1em;
+}
+.feed-container-user{
+  width: 330px;
+  flex-direction: column;
+}
+.nav-user{
+  width: 330px;
+  flex-direction: column;
+}
+.user-data{
+  flex-direction: column;
+}
+.catch-phrese-feed{
+  font-size: 20px;
+}
+}
