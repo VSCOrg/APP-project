@@ -56,13 +56,20 @@ ul {
   font-size: 1em;
   background-color: rgba(101, 101, 167, 0);
 }
-
+.nav-welcome {
+  font-size: 1.5em;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  background-color: black;
+  border: none;
+}
 .nav-elements {
   font-size: 1.5em;
   color: rgb(255, 255, 255);
   text-decoration: none;
   background-color: black;
   border: none;
+
 }
 
 .nav-elements:hover {
