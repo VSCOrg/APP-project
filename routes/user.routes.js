@@ -26,8 +26,6 @@ router.get("/user-profile", (req, res) => {
 });
 
 
-
-
 //display page edit user
 
 router.get("/user-edit", (req, res) => {
@@ -36,20 +34,26 @@ router.get("/user-edit", (req, res) => {
 });
 
 
-
 // edit user
 router.post("/user-edit", fileUploader.single('profilePicture'), (req, res) => {
     const userToUpdate = req.session.currentUser
     //console.log("ciao", userToUpdate);
     const updatedUser = req.body;
     //console.log("hello", updatedUser);
-    User.findByIdAndUpdate(userToUpdate._id, { bio: updatedUser.bio, profilePicture: req.file.path }, { new: true })
-        .then((userUpdated) => {
-            console.log(userUpdated);
-            req.session.currentUser = userUpdated
-            res.redirect("/user/user-profile")
-        })
-        .catch((error) => console.log("error!!", error));
+    const profilePicture = req.file.path
+
+    
+        User.findByIdAndUpdate(
+            userToUpdate._id, 
+            { /* bio: updatedUser.bio, location: updatedUser.location, */ profilePicture: req.file.path }, 
+            { new: true })
+            .then((userUpdated) => {
+                console.log(userUpdated);
+                req.session.currentUser = userUpdated
+                res.redirect("/user/user-profile")
+            })
+            .catch((error) => console.log("error!!", error));
+ 
 
 });
 
