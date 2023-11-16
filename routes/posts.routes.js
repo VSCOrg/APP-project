@@ -31,14 +31,14 @@ router.post("/post-create", fileUploader.single('foodImage'), (req, res) => {
         title: postCreated.title,
         foodImage: req.file.path,
         description: postCreated.description,
-        expiringDate: dayFormated.getDay(), 
+        expiringDate: dayFormated.getDay(),
         pickUpTime: postCreated.pickUpTime,
 
         pickUpPlace: postCreated.pickUpPlace,
         foodType: postCreated.foodType,
         alergies: postCreated.alergies,
         creator: user._id
-    })  
+    })
 
         .then((newFoodPost) => {
             return User.findByIdAndUpdate(user._id, { $push: { foodPosts: newFoodPost._id } })  //return s
@@ -74,21 +74,21 @@ router.post("/tupper-request", (req, res) => {
     const requested = true
 
     Foodpost.findByIdAndUpdate(postId,
-         {requested: true, requestedBy: user._id},
-         {new: true})
-         
-    .then((tupperRequested) => {
-        console.log(tupperRequested)
-    })
-    .catch((error) => {
-        console.log("error creating post", error);
-        res.status(500).send("Internal server error amigo")
-    })
-    
+        { requested: true, requestedBy: user._id },
+        { new: true })
 
-    User.findByIdAndUpdate(user._id, { $push: { requestedTuppers: postId} })
+        .then((tupperRequested) => {
+            console.log(tupperRequested)
+        })
+        .catch((error) => {
+            console.log("error updating tupper requested post", error);
+            res.status(500).send("Internal server error amigo")
+        })
+
+
+    User.findByIdAndUpdate(user._id, { $push: { requestedTuppers: postId } })
         .then((userUpdated) => {
-           // console.log(userUpdated);
+            // console.log(userUpdated);
             res.redirect("/user/user-profile")
         })
         .catch((error) => {
@@ -96,5 +96,23 @@ router.post("/tupper-request", (req, res) => {
             res.status(500).send("Internal server error amigo")
         })
 });
+
+router.post("/tupper-to-delete", (req, res) => {
+    const { postId } = req.body
+
+    Foodpost.findById(postId)
+        .then((deliveredPost) => {
+            console.log(deliveredPost)
+            return Foodpost.deleteOne(deliveredPost)
+
+        })
+        .then((deletedPost) => {
+            res.redirect("/user/user-profile")
+        })
+        .catch((error) => {
+            console.log("error delivering post", error);
+            res.status(500).send("Internal server error amigo")
+        })
+})
 
 module.exports = router;

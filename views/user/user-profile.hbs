@@ -28,6 +28,10 @@
                     <img class="food-image" src="{{this.foodImage}}" alt="your shared tuppers">
                     {{#if this.requested}}
                     <p>Requested by:<b>{{this.requestedBy.username}}</b></p>
+                    <form id="request-tupper-button" action="/post/tupper-to-delete" method="POST">
+                        <input type="hidden" name="postId" value="{{this._id}}">
+                        <button type="submit" class="button">DELIVERED</button>
+                    </form>
                     {{/if}}
                 </div>
                 {{/each}}
