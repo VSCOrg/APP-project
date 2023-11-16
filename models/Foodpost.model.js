@@ -25,11 +25,11 @@ const foodPostSchema = new Schema(
     },
     pickUpTime: {
       type: String,
-      required: true,
+      enum: ["13:00h", "13:30h", "14:00", "14:30", "15:00h", "15:30h", "16:00"]
     },
     pickUpPlace: {
       type: String,
-      required: true,
+      enum: ["Fridge #1", "Fridge #2"]
     },
     foodType: {
       type: String,
