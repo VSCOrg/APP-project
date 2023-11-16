@@ -39,7 +39,10 @@ const foodPostSchema = new Schema(
       type: String,
       required: true,
     },
-    requested: false,
+    requested: {
+      type: Boolean,
+      default: false
+    },
 
     requestedBy: {type: Schema.Types.ObjectId, ref: "User" },
 
