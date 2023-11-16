@@ -26,7 +26,9 @@
                 <div class="tupper-shared">
                     <h3>{{this.title}}</h3>
                     <img class="food-image" src="{{this.foodImage}}" alt="your shared tuppers">
-                    <p><b></b></p>
+                    {{#if this.requested}}
+                    <p>Requested by:<b>{{this.requestedBy.username}}</b></p>
+                    {{/if}}
                 </div>
                 {{/each}}
             </div>

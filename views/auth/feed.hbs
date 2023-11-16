@@ -4,7 +4,7 @@
   <br>
   <div class="feed-container">
     {{#each posts}}
-    {{#unless this.posts.requested}}
+    {{#unless this.requested}}
     <div class="food">
       <div class="food-post-details">
         <h2 class="food-post-title">{{this.title}}</h2>
@@ -16,7 +16,7 @@
 
         </div>
         <br>
-        <form id="request-tupper-button" action="/auth/tupper-request" method="POST">
+        <form id="request-tupper-button" action="/post/tupper-request" method="POST">
           <input type="hidden" name="postId" value="{{this._id}}">
           <button type="submit" class="button">I'll take it</button>
         </form>
