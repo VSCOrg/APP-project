@@ -4,6 +4,7 @@
   <br>
   <div class="feed-container">
     {{#each posts}}
+    {{#unless this.posts.requested}}
     <div class="food">
       <div class="food-post-details">
         <h2 class="food-post-title">{{this.title}}</h2>
@@ -12,15 +13,17 @@
           <p><B>Expiration Date:</B>{{this.expiringDate}}</p>
           <p><B>Location:</B> {{this.pickUpPlace}}</p>
           <p><B>User:</B> {{this.creator.username}} </p>
-          <form id="request-tupper-button" action="/auth/tupper-request" method="POST">
-            <input type="hidden" name="post" value="{{this.posts}}">
+
         </div>
         <br>
-        <button type="submit" class="button">I'll take it</button>
+        <form id="request-tupper-button" action="/auth/tupper-request" method="POST">
+          <input type="hidden" name="postId" value="{{this._id}}">
+          <button type="submit" class="button">I'll take it</button>
+        </form>
       </div>
       <img class="food-image" src="{{this.foodImage}}" alt="{{this.name}}">
-      </form>
     </div>
+    {{/unless}}
     {{/each}}
   </div>
 </div>
