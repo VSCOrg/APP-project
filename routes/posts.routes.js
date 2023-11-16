@@ -73,8 +73,18 @@ router.post("/tupper-request", (req, res) => {
     const user = req.session.currentUser
     const requested = true
 
-    Foodpost.findByIdAndUpdate(postId, {requested: true})
-    console.log(post)
+    Foodpost.findByIdAndUpdate(postId,
+         {requested: true, requestedBy: user._id},
+         {new: true})
+         
+    .then((tupperRequested) => {
+        console.log(tupperRequested)
+    })
+    .catch((error) => {
+        console.log("error creating post", error);
+        res.status(500).send("Internal server error amigo")
+    })
+    
 
     User.findByIdAndUpdate(user._id, { $push: { requestedTuppers: postId} })
         .then((userUpdated) => {

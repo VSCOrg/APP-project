@@ -17,6 +17,7 @@ router.get("/user-profile", (req, res) => {
     const user = req.session.currentUser
 
     Foodpost.find({ creator: user._id })
+    .populate("requestedBy")
         .then((userPosts) => {
             console.log(userPosts)
             res.render("user/user-profile", { user, userPosts });

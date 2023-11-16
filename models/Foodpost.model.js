@@ -19,8 +19,8 @@ const foodPostSchema = new Schema(
       unique: true,
       trim: true,
     },
-     expiringDate: {
-      type: Date,  
+    expiringDate: {
+      type: Date,
       required: true,
     },
     pickUpTime: {
@@ -44,7 +44,7 @@ const foodPostSchema = new Schema(
       default: false
     },
 
-    requestedBy: {type: Schema.Types.ObjectId, ref: "User" },
+    requestedBy: { type: Schema.Types.ObjectId, ref: "User" },
 
     creator: { type: Schema.Types.ObjectId, ref: "User" } ///Deleted mongoose. before Schema because it was giving error
   },
