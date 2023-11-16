@@ -19,8 +19,8 @@ const foodPostSchema = new Schema(
       unique: true,
       trim: true,
     },
-    expiringDate: {
-      type: Date,
+     expiringDate: {
+      type: String,  
       required: true,
     },
     pickUpTime: {
