@@ -64,15 +64,7 @@ ul {
   background-color: black;
   border: none;
 }
-.nav-elements {
 
-  font-size: 1.5em;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  background-color: black;
-  border: none;
-
-}
 .nav-elements {
   font-size: 1.5em;
   color: rgb(255, 255, 255);
@@ -301,3 +293,36 @@ nav ul li a.active {
   border-radius: 2em;
 }
 
+@media  (max-width: 450px) {
+  .button {
+      height: 100px;
+      width: 360px;
+      margin: 20px;
+      font-size: 40px;
+      border-radius: 30px;
+      background-color: brown;
+  }
+  #join-now {
+    font-size: 40px;
+  }
+  .catch-phrase {
+    font-size: 40px;
+  }
+  #title1part {
+    font-size: 80px;
+  }
+  
+  #title2part {
+    font-size: 140px;
+  }
+
+  #index-container {
+    width: 85%;
+    border-radius: 80px;
+    
+  }
+  .first-pages-logos{
+    height: 180px;
+  }
+
+}
