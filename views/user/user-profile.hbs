@@ -1,15 +1,23 @@
 {{!-- this is a nav user to say hello, show image, and buttons available to create and edit profile --}}
 <br>
 <div class="general-feed-container">
-    <div class="feed-container">
+    <div class="feed-container-user">
         <div class="nav-user">
             <br>
-            <h1>Hi, {{user.username}} 👋</h1> <br>
-            <h2><img class="profile-image" src="{{user.profilePicture}}" alt="{{user.username}}"></h2> <br>
+            <h1>Hi, {{user.username}}</h1> <br>
+            <div class="user-data">
+            <h2><img class="profile-image" src="{{user.profilePicture}}" alt="{{user.username}}"></h2> 
+            <br>
+            <div>
             <p><strong>Username:</strong> {{user.username}}</p>
+            <br>
             <p><strong>Email:</strong> {{user.email}}</p>
+            <br>
             <p><strong>Location:</strong> {{user.location}}</p>
+            <br>
             <p><strong>Bio:</strong> {{user.bio}}</p>
+            </div>
+            </div>
             <br>
             <br>
             <p><a href="/user/user-edit"> <button class="button"> Edit profile</button></a>
@@ -17,14 +25,19 @@
 
         <br>
         <div>
+            <h2 class="catch-phrese-feed"> Tuppers you shared:</h2><br>
             <div class="tuppers-shared">
                 {{#each userPosts}}
                 <div class="tupper-shared">
-                    <h2 class="nav-elements"> Your shared Tuppers :</h2><br>
                     <h3>{{this.title}}</h3>
+                    <br>
                     <img class="food-image" src="{{this.foodImage}}" alt="your shared tuppers">
+                    <br>
+                    <div>
                     <p> <strong>Expiring Date:</strong> {{this.expiringDate}} </p>
                     <p> <strong>Location:</strong> {{this.pickUpPlace}} </p>
+                    <br>
+                    </div>
                     {{#if this.requested}}
                     <p>Requested by:<b>{{this.requestedBy.username}}</b></p>
                     <form id="request-tupper-button" action="/post/tupper-to-delete" method="POST">
@@ -45,7 +58,7 @@
             {{#each userRequests}}
             {{#if this.title}}
             <h3>{{this.title}}</h3>
-            <img height="200px" width="200px" src="{{this.foodImage}}" alt="You Tuppered this post">
+            <img class="food-image"src="{{this.foodImage}}" alt="You Tuppered this post">
             <p> <strong>You picked up at:</strong> {{this.pickUpPlace}} | {{this.pickUpTime}} </p>
             {{/if}}
             {{/each}}
