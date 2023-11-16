@@ -25,15 +25,14 @@ router.get("/post-create", (req, res) => {
 router.post("/post-create", fileUploader.single('foodImage'), (req, res) => {
     const user = req.session.currentUser
     const postCreated = req.body
-    const dayFormated = new Date(postCreated.expiringDate)
-    console.log(dayFormated.getDay());
+    //const dayFormated = new Date(postCreated.expiringDate)
+    //console.log(dayFormated.getDay());
     Foodpost.create({
         title: postCreated.title,
         foodImage: req.file.path,
         description: postCreated.description,
-        expiringDate: dayFormated.getDay(), 
+        expiringDate: postCreated.expiringDate.toLocaleString(), 
         pickUpTime: postCreated.pickUpTime,
-
         pickUpPlace: postCreated.pickUpPlace,
         foodType: postCreated.foodType,
         alergies: postCreated.alergies,
