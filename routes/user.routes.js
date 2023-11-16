@@ -15,6 +15,8 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 // Get user infos and display them
 router.get("/user-profile", (req, res) => {
     const user = req.session.currentUser
+    const displayHome = true
+    const displayProfileButton = false
 
     const findPost = Foodpost.find({ creator: user._id })
         .populate("requestedBy")
@@ -26,7 +28,7 @@ router.get("/user-profile", (req, res) => {
     Promise.all([findPost, findUser])
         .then((values) => {
             // res.send(values[1])
-            res.render("user/user-profile", { userPosts: values[0], userRequests: values[1].requestedTuppers, user });
+            res.render("user/user-profile", { userPosts: values[0], userRequests: values[1].requestedTuppers, user, displayHome, displayProfileButton} );
         })
 
 });
@@ -38,7 +40,8 @@ router.get("/user-profile", (req, res) => {
 
 router.get("/user-edit", (req, res) => {
     const user = req.session.currentUser
-    res.render("user/user-edit", user)
+    const displayHome = true
+    res.render("user/user-edit", user, displayHome)
 });
 
 
@@ -46,7 +49,7 @@ router.get("/user-edit", (req, res) => {
 // edit user
 router.post("/user-edit", fileUploader.single('profilePicture'), (req, res) => {
     const userToUpdate = req.session.currentUser
-
+    
     const updatedUser = req.body;
     let newProfilePicture = userToUpdate.profilePicture
     let newBio = userToUpdate.bio
