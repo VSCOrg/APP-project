@@ -14,8 +14,9 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 // GET /post/post-create
 router.get("/post-create", isLoggedIn, (req, res) => {
-
-    res.render("post/post-create");
+    const displayHome = true
+    const displayProfileButton = true
+    res.render("post/post-create", {displayHome, displayProfileButton});
 
 });
 
@@ -25,6 +26,7 @@ const dateOptions = { weekday: 'long', day: 'numeric', month: 'short', year: 'nu
 router.post("/post-create", isLoggedIn, fileUploader.single('foodImage'), (req, res) => {
     const user = req.session.currentUser
     const postCreated = req.body
+    
     //const dayFormated = new Date(postCreated.expiringDate)
     //console.log(dayFormated.getDay());
     Foodpost.create({

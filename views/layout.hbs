@@ -12,19 +12,22 @@
   <main>
     <nav class="navbar">
       <ul>
+
         {{#if displayHome}}
         <li><a class="nav-elements" href="/auth/feed">Home</a></li>
-        {{/if}}
+        {{/if}}  
         {{#if user}}
         <li class="nav-welcome">Welcome, {{user.username}}!</li>
+        {{/if}}
+
         <li><a href="/post/post-create" class="nav-elements">Share Tupper</a></li>
+
         {{#if displayProfileButton}}
         <li><a href="/user/user-profile" class="nav-elements">My Profile</a>
-        {{/if}}
+          {{/if}}
         <li>
           <form id="logout-form" action="/auth/logout" method="POST"><button class="nav-elements">Logout</button></form>
         </li>
-        {{/if}}
       </ul>
     </nav>
   </main>
