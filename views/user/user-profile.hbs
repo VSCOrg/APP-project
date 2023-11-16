@@ -9,18 +9,11 @@
         </div>
 
         <br>
-        {{!-- this is a div with general info user --}}
-        {{!-- <div class="info-user">
-            <p>Username : {{this.username}}</p>
-            <p>e-mail : {{this.email}}</p>
-            <p>About you: {{this.bio}}</p>
-        </div> --}}
-
         <br>
-        {{!-- this is a div TO SHOW USER POSTS --}}
+
         <div>
 
-            <h2>Tuppers you shared :{{!-- horizontal scrolling → → → → → → → → --}} </h2><br>
+            <h2>Tuppers you shared :</h2><br>
             <div class="tuppers-shared">
                 {{#each userPosts}}
                 <div class="tupper-shared">
@@ -41,12 +34,17 @@
         <br>
         <hr>
         <br>
-        {{!-- this is a div TO SHOW THE FOOD REQUIRED FROM OTHER USERS --}}
+        
         <div class="tuppers-tuppered">
-            <h2>All you have Tuppered :{{!-- horizontal scrolling → → → → → → → → --}} </h2><br>
+            <h2>All you have Tuppered :</h2><br>
+            {{#each userRequests}}  
+            {{#if this.title}}
+            <h4>{{this.title}}</h4>
             <img height="200px" width="200px"
-                src="https://uvn-brightspot.s3.amazonaws.com/assets/vixes/btg/donde-esta-mi-hamburguesa-15-gifs-de-homero-disfrutando-el-placer-de-comer-4.gif"
-                alt="">
+                src="{{this.foodImage}}"
+                alt="You Tuppered this post">
+                {{/if}}
+            {{/each}}
         </div>
     </div>
 </div>

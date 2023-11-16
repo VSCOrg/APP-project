@@ -16,12 +16,17 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 router.get("/user-profile", (req, res) => {
     const user = req.session.currentUser
 
-    Foodpost.find({ creator: user._id })
-    .populate("requestedBy")
-        .then((userPosts) => {
-            console.log(userPosts)
-            res.render("user/user-profile", { user, userPosts });
+    const findPost = Foodpost.find({ creator: user._id })
+        .populate("requestedBy")
 
+
+    const findUser = User.findById(user._id)
+        .populate("requestedTuppers")
+
+    Promise.all([findPost, findUser])
+        .then((values) => {
+            // res.send(values[1])
+            res.render("user/user-profile", { userPosts: values[0], userRequests: values[1].requestedTuppers });
         })
 
 });
@@ -48,19 +53,19 @@ router.post("/user-edit", fileUploader.single('profilePicture'), (req, res) => {
     let newLocation = userToUpdate.location
 
     //Verify if a new image file was uploaded
-    if(req.file){
+    if (req.file) {
         newProfilePicture = req.file.path
     } else if (!req.file) {
         newProfilePicture = userToUpdate.profilePicture
     }
 
-    if(updatedUser.bio){
+    if (updatedUser.bio) {
         newBio = updatedUser.bio
     } else if (!updatedUser.bio) {
         newProfilePicture = userToUpdate.profilePicture
     }
-    
-    if(updatedUser.location){
+
+    if (updatedUser.location) {
         newLocation = updatedUser.location
     } else if (!updatedUser.location) {
         newProfilePicture = userToUpdate.profilePicture
@@ -68,7 +73,7 @@ router.post("/user-edit", fileUploader.single('profilePicture'), (req, res) => {
 
     User.findByIdAndUpdate(
         userToUpdate._id,
-        { bio: updatedUser.bio, location: updatedUser.location, newProfilePicture },
+        { bio: updatedUser.bio, location: updatedUser.location, profilePicture: newProfilePicture },
         { new: true })
         .then((userUpdated) => {
             console.log(userUpdated);
