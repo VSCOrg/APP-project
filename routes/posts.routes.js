@@ -79,7 +79,7 @@ router.post("/tupper-request", isLoggedIn, (req, res) => {
         { new: true })
 
         .then((tupperRequested) => {
-            console.log(tupperRequested)
+            //console.log(tupperRequested)
         })
         .catch((error) => {
             console.log("error updating tupper requested post", error);
@@ -104,7 +104,7 @@ router.post("/tupper-to-delete", isLoggedIn, (req, res) => {
     Foodpost.findById(postId)
         .then((deliveredPost) => {
             console.log(deliveredPost)
-            return Foodpost.deleteOne(deliveredPost)
+            return Foodpost.deleteOne({_id: deliveredPost._id})
 
         })
         .then((deletedPost) => {
