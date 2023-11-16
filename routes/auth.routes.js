@@ -168,12 +168,14 @@ router.post("/logout", isLoggedIn, (req, res) => {
 // GET /auth/feed
 router.get("/feed",isLoggedIn, (req, res) => {
   const user = req.session.currentUser
+  const displayHome = false
+  const displayProfileButton = true
   Foodpost.find()
   .populate("creator")
     .then(allthepostfromDB => {
       
       console.log('>>>>> THIS IS YOU GET FROM THE DB :', allthepostfromDB);
-      res.render("auth/feed", { user, posts: allthepostfromDB });
+      res.render("auth/feed", { user, posts: allthepostfromDB, displayHome, displayProfileButton });
     })
     .catch(error => {
       console.log("error!!", error);

@@ -40,7 +40,7 @@ router.post("/post-create", isLoggedIn, fileUploader.single('foodImage'), (req, 
     })
 
         .then((newFoodPost) => {
-            return User.findByIdAndUpdate(user._id, { $push: { foodPosts: newFoodPost._id } })  //return s
+            return User.findByIdAndUpdate(user._id, { $push: { foodPosts: newFoodPost._id } })  
         })
         .then((userUpdated) => {
             //console.log(userUpdated)
