@@ -41,7 +41,7 @@ router.get("/user-profile", (req, res) => {
 router.get("/user-edit", (req, res) => {
     const user = req.session.currentUser
     const displayHome = true
-    res.render("user/user-edit", user, displayHome)
+    res.render("user/user-edit", {user, displayHome})
 });
 
 

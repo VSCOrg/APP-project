@@ -1,7 +1,8 @@
+
 <br>
 <div class="general-feed-container">
-  <div class="feed-container">
-    <h2>Hi, {{this.username}} </h2>
+  <div class="post-form">
+    <h2>Hi, {{user.username}} </h2>
     <br>
     <br>
 
@@ -9,14 +10,15 @@
       <div class="user-edit-container">
 
         <!-- The mail and username is Non-editable -->
-        <p><strong>Username:</strong> {{this.username}}</p>
-        <p><strong>Email:</strong> {{this.email}}</p>
+        <p><strong>Username:</strong> {{user.username}}</p>
+        <p><strong>Email:</strong> {{user.email}}</p>
         {{!-- <p><strong>Location:</strong> {{this.userlocation}}</p> --}}
         <br>
         <br>
 
         <!-- Display current user image -->
-        <img height="60px" width="60px" src="{{this.profilePicture}}" alt="Profile Picture"><br>
+        <img class="profile-image" src="{{user.profilePicture}}" alt="Profile Picture"><br>
+        <br>
         <!-- Input for a new image (if you want to allow image update) -->
         <input type="file" name="profilePicture" id="profilePicture">
         <br><br>
@@ -28,13 +30,13 @@
         <!-- Editable location -->
         <label for="userlocation"><strong>Location:</strong></label><br>
         <br>
-        <textarea id="location" name="location">{{this.location}}</textarea>
+        <textarea id="location" name="location">{{user.location}}</textarea>
         <br><br>
 
         <!-- Editable bio -->
         <label for="bio"><strong>Your bio:</strong></label><br>
         <br>
-        <textarea id="bio" name="bio">{{this.bio}}</textarea>
+        <textarea id="bio" name="bio">{{user.bio}}</textarea>
         <br>
         <br><br>
         <button class="button" type="submit"><strong>SAVE</strong></button>

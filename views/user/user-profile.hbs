@@ -6,17 +6,19 @@
             <br>
             <h1>Hi, {{user.username}}</h1> <br>
             <div class="user-data">
-            <h2><img class="profile-image" src="{{user.profilePicture}}" alt="{{user.username}}"></h2> 
-            <br>
-            <div>
-            <p><strong>Username:</strong> {{user.username}}</p>
-            <br>
-            <p><strong>Email:</strong> {{user.email}}</p>
-            <br>
-            <p><strong>Location:</strong> {{user.location}}</p>
-            <br>
-            <p><strong>Bio:</strong> {{user.bio}}</p>
-            </div>
+
+                <h2><img class="profile-image" src="{{user.profilePicture}}" alt="{{user.username}}"></h2>
+                <br>
+                <div>
+                    <p><strong>Username:</strong> {{user.username}}</p>
+                    <br>
+                    <p><strong>Email:</strong> {{user.email}}</p>
+                    <br>
+                    <p><strong>Location:</strong> {{user.location}}</p>
+                    <br>
+                    <p><strong>Bio:</strong> {{user.bio}}</p>
+                </div>
+
             </div>
             <br>
             <br>
@@ -34,9 +36,11 @@
                     <img class="food-image" src="{{this.foodImage}}" alt="your shared tuppers">
                     <br>
                     <div>
-                    <p> <strong>Expiring Date:</strong> {{this.expiringDate}} </p>
-                    <p> <strong>Location:</strong> {{this.pickUpPlace}} </p>
-                    <br>
+
+                        <p> <strong>Expiring Date:</strong> {{this.expiringDate}} </p>
+                        <p> <strong>Location:</strong> {{this.pickUpPlace}} </p>
+                        <br>
+
                     </div>
                     {{#if this.requested}}
                     <p>Requested by:<b>{{this.requestedBy.username}}</b></p>
@@ -52,14 +56,19 @@
         <br>
         <hr>
         <br>
-
-        <div class="tupper-shared">
-            <h2 class="nav-elements">All you have Tuppered :</h2><br>
+        <h2 class="catch-phrese-feed">All you have Tuppered :</h2><br>
+        <div class="tuppers-shared">
             {{#each userRequests}}
-            {{#if this.title}}
-            <h3>{{this.title}}</h3>
-            <img class="food-image"src="{{this.foodImage}}" alt="You Tuppered this post">
-            <p> <strong>You picked up at:</strong> {{this.pickUpPlace}} | {{this.pickUpTime}} </p>
+
+            <div class="tupper-shared">
+                {{#if this.title}}
+                <h3>{{this.title}}</h3>
+                <br>
+                <img class="food-image" src="{{this.foodImage}}" alt="You Tuppered this post">
+                <br>
+                <p> <strong>You picked up at:</strong> {{this.pickUpPlace}} | {{this.pickUpTime}} </p>
+            </div>
+
             {{/if}}
             {{/each}}
         </div>

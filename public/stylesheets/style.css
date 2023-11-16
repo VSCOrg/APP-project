@@ -13,7 +13,7 @@ body {
   width: 100%;
   height: 100%;
   font: 14px "Raleway", sans-serif;
-  background-image: url('/images/background.jpg');
+  background-image: url('/images/backgroundnew.jpg');
   background-size: cover;
 }
 
@@ -91,7 +91,7 @@ nav ul li a.active {
   max-width: 20em;
 }
 
-#post-form {
+.post-form {
   width: 80%;
   background-color: rgba(255, 255, 255, 0.4);
   display: flex;
@@ -217,8 +217,14 @@ nav ul li a.active {
 }
 
 .food-image {
+
   max-width: 180px;
+
+  height: 180px;
+  width: 180px;
+
   border-radius: 2em;
+  object-fit: cover;
 }
 
 .feed-container {
