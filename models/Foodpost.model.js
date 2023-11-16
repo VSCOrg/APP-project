@@ -39,6 +39,10 @@ const foodPostSchema = new Schema(
       type: String,
       required: true,
     },
+    requested: false,
+
+    requestedBy: {type: Schema.Types.ObjectId, ref: "User" },
+
     creator: { type: Schema.Types.ObjectId, ref: "User" } ///Deleted mongoose. before Schema because it was giving error
   },
   {

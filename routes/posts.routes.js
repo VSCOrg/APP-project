@@ -69,10 +69,17 @@ router.get("/post", (req, res) => {
 
 //Post / tupper-request
 router.post("/tupper-request", (req, res) => {
-    const { postId } = req.body
+    const { post } = req.body
     const user = req.session.currentUser
+    const requested = true
+
+    if (post.requested === true) {
+        post.requestedBy = user
+    }else{
+        post.requestedBy = ""
+    }
     //console.log(req.body);
-    User.findByIdAndUpdate(user._id, { $push: { requestedTuppers: postId } })
+    User.findByIdAndUpdate(user._id, { $push: { requestedTuppers: post._id } })
         .then((userUpdated) => {
            // console.log(userUpdated);
             res.redirect("/user/user-profile")
