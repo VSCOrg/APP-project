@@ -299,9 +299,8 @@ nav ul li a.active {
 
 }
 .catch-phrese-feed {
-  font-size: 20px;
-  color: white;
-  background-color: black;
+  font-size: 35px;
+  color: black;
   border-radius: 0.7em;
   padding: 10px;
 }
@@ -399,5 +398,8 @@ food-post-title{
 }
 .user-data{
   flex-direction: column;
+}
+.catch-phrese-feed{
+  font-size: 20px;
 }
 }
