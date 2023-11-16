@@ -13,18 +13,18 @@
         <form id="form-container" action="/post/post-create" method="POST" enctype="multipart/form-data">
             <div>
                 <div>
-                    <label for="title"><b>Title</b></label>
+                    <label for="title"><b>Title :</b></label>
                     <input type="text" name="title">
 
                 </div>
                 <br>
                 <div>
-                    <label for="foodImage"> <b>Picture</b></label>
+                    <label for="foodImage"> <b>Image :</b></label>
                     <input type="file" name="foodImage" id="food-image" required>
                     <br>
                 </div>
                 <br>
-                <label for="description"><b>Description</b></label>
+                <label for="description"><b>Description :</b></label>
                 <textarea id="content" name="description" required></textarea>
             </div>
             <div>
@@ -38,26 +38,39 @@
             </div>
 
             <div>
-                <label for="expiringDate"><b>Expiring Date</b></label>
+                <label for="expiringDate"><b>Expiring Date :</b></label>
                 <input type="date" id="expiring-date" name="expiringDate" required>
             </div>
 
             <div id="pickUpTime">
-                <label for="pickUpTime"><b>Pick-up time range</b></label>
+                <label for="pickUpTime"><b>Pick Up Time : </b></label>
+                <select id="pickUp-Time" name="pickUpTime">
+                    <option value="13:00h">13:00h</option>
+                    <option value="13:30h">13:30h</option>
+                    <option value="14:00h">14:00h</option>
+                    <option value="14:30h">14:30h</option>
+                    <option value="15:00h">15:00h</option>
+                    <option value="15:30h">15:30h</option>
+                    <option value="16:00h">16:00h</option>
+                    </select>
+                {{!-- <input type="text" id="pick-up-time" name="pickUpTime" required>
                 <p>Type a time range suitable for you in 24h format</p>
-                <input type="text" id="pick-up-time" name="pickUpTime" required>
-
+ --}}
 
                 <!-- <input type="time" min="00:00" max="23:00" id="pick-up-time" name="pickUpTime" required> -->
             </div>
 
             <div>
-                <label for="pickUpPlace"><b>Pick up place</b></label>
-                <input type="text" id="pick-up-place" name="pickUpPlace" required>
+                <label for="pickUpPlace"><b>Pick Up place :</b></label>
+                <select id="pickUp-Place" name="pickUpPlace">
+                    <option value="Fridge #1">Fridge #1</option>
+                    <option value="Fridge #2">Fridge #2</option>
+                    </select>
+             {{!--    <input type="text" id="pick-up-place" name="pickUpPlace" required> --}}
             </div>
 
             <div>
-                <label for="alergies"><b>Alergies:</b></label>
+                <label for="alergies"><b>Alergies :</b></label>
                 <input type="text" name="alergies" required>
             </div>
             <br>
