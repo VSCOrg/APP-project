@@ -217,8 +217,12 @@ nav ul li a.active {
 }
 
 .food-image {
+
+  max-width: 180px;
+
   height: 180px;
   width: 180px;
+
   border-radius: 2em;
   object-fit: cover;
 }

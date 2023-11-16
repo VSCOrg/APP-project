@@ -6,6 +6,7 @@
             <br>
             <h1>Hi, {{user.username}}</h1> <br>
             <div class="user-data">
+
                 <h2><img class="profile-image" src="{{user.profilePicture}}" alt="{{user.username}}"></h2>
                 <br>
                 <div>
@@ -17,6 +18,7 @@
                     <br>
                     <p><strong>Bio:</strong> {{user.bio}}</p>
                 </div>
+
             </div>
             <br>
             <br>
@@ -34,9 +36,11 @@
                     <img class="food-image" src="{{this.foodImage}}" alt="your shared tuppers">
                     <br>
                     <div>
+
                         <p> <strong>Expiring Date:</strong> {{this.expiringDate}} </p>
                         <p> <strong>Location:</strong> {{this.pickUpPlace}} </p>
                         <br>
+
                     </div>
                     {{#if this.requested}}
                     <p>Requested by:<b>{{this.requestedBy.username}}</b></p>
@@ -55,6 +59,7 @@
         <h2 class="catch-phrese-feed">All you have Tuppered :</h2><br>
         <div class="tuppers-shared">
             {{#each userRequests}}
+
             <div class="tupper-shared">
                 {{#if this.title}}
                 <h3>{{this.title}}</h3>
@@ -63,6 +68,7 @@
                 <br>
                 <p> <strong>You picked up at:</strong> {{this.pickUpPlace}} | {{this.pickUpTime}} </p>
             </div>
+
             {{/if}}
             {{/each}}
         </div>
