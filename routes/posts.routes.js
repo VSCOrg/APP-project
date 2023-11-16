@@ -20,7 +20,7 @@ router.get("/post-create", (req, res) => {
 });
 
 
-
+const dateOptions = { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' };
 /// POST CREATE
 router.post("/post-create", fileUploader.single('foodImage'), (req, res) => {
     const user = req.session.currentUser
@@ -31,8 +31,7 @@ router.post("/post-create", fileUploader.single('foodImage'), (req, res) => {
         title: postCreated.title,
         foodImage: req.file.path,
         description: postCreated.description,
-
-        expiringDate: postCreated.expiringDate.toLocaleString(), 
+        expiringDate: new Date(postCreated.expiringDate).toLocaleDateString('en-EN', dateOptions), 
         pickUpTime: postCreated.pickUpTime,
         pickUpPlace: postCreated.pickUpPlace,
         foodType: postCreated.foodType,

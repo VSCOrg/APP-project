@@ -1,6 +1,6 @@
 <br>
 <div class="general-feed-container">
-  <h1>What's your favourite tupper?</h1>
+  <h1>Choose your Tupper for today</h1>
   <br>
   <div class="feed-container">
     {{#each posts}}
@@ -10,10 +10,12 @@
         <h2 class="food-post-title">{{this.title}}</h2>
         <br>
         <div class="food-post-text">
-          <p><B>Expiration Date: </B>{{this.expiringDate}}</p>
-          <p><B>Location: </B> {{this.pickUpPlace}}</p>
+          <p><B>Expiration Date: </B>{{this.expiringDate}} </p>
+          <p><B>PickUp Time: </B> {{this.pickUpTime}}</p>
+          <p><B>Location: </B> {{this.Location}}</p>
           <p><B>Chef: </B> {{this.creator.username}} </p>
-
+          <p><B>Description: </B> {{this.creator.description}} </p>
+          <p><B>Alergies: </B> {{this.alergies}} </p>
         </div>
         <br>
         <form id="request-tupper-button" action="/post/tupper-request" method="POST">
