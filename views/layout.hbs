@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <main>
+  <main class="nav-container">
     <nav class="navbar">
         {{#if displayHome}}
         <a id="home-button" href="/auth/feed">Home</a>
@@ -17,7 +17,7 @@
       <ul>
 
         {{#if user}}
-        <li class="nav-welcome">Welcome, {{user.username}}!</li>
+        <li><span class="nav-welcome" style="margin-left: 20px;">  Welcome, <span class="username" style="margin-left: 5px;">{{user.username}}</span>!</span></li>
         {{/if}}
 
         <li><a href="/post/post-create" class="nav-elements">Share Tupper</a></li>

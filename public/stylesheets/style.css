@@ -29,6 +29,11 @@ body {
   flex-direction: column;
 }
 
+.nav-container{
+  display: flex;
+  justify-content: center;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -37,10 +42,9 @@ body {
   height: 4em;
   margin-top: 2em;
   width: 90%;
-  margin-left: 5em;
-  margin-right: 1em;
-  
-} 
+ 
+
+}
 
 ul {
   display: flex;
@@ -53,16 +57,17 @@ ul {
 
 
 }
-#home-button{
-  margin-left: 25px; 
+
+#home-button {
+  margin-left: 25px;
   margin-top: 15px;
-  
+
   font-size: 1.5em;
   color: rgb(255, 255, 255);
   text-decoration: none;
   background-color: black;
   border: none;
-  
+
 }
 
 #logout-form button {
@@ -70,12 +75,14 @@ ul {
   font-size: 1.5em;
   background-color: rgba(101, 101, 167, 0);
 }
+
 .nav-welcome {
   font-size: 1.5em;
   color: rgb(255, 255, 255);
   text-decoration: none;
   background-color: black;
   border: none;
+  margin-left: 10px;
 }
 
 .nav-elements {
@@ -87,6 +94,10 @@ ul {
 }
 
 .nav-elements:hover {
+  color: yellow
+}
+
+#home-button:hover{
   color: yellow
 }
 
@@ -158,7 +169,7 @@ nav ul li a.active {
 
 .catch-phrase {
   font-size: 16px;
-  
+
 }
 
 .button {
@@ -278,6 +289,7 @@ nav ul li a.active {
 .food-post-text {
   padding: 10px;
 }
+
 .general-feed-container {
   justify-content: center;
   align-items: center;
@@ -286,7 +298,7 @@ nav ul li a.active {
 }
 
 .profile-image {
-  width:150px;
+  width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
@@ -300,6 +312,7 @@ nav ul li a.active {
   flex-wrap: wrap;
 
 }
+
 .tupper-shared {
   background-color: rgba(255, 255, 255, 0.6);
   margin: 15px;
@@ -313,6 +326,7 @@ nav ul li a.active {
   display: flex;
 
 }
+
 .catch-phrese-feed {
   font-size: 35px;
   color: black;
@@ -341,7 +355,8 @@ nav ul li a.active {
   padding: 15px;
   margin: 20px;
 }
-.user-data{
+
+.user-data {
   width: 500px;
   display: flex;
   justify-content: space-evenly;
@@ -349,25 +364,28 @@ nav ul li a.active {
   flex-direction: row;
 }
 
-@media  (max-width: 450px) {
+@media (max-width: 450px) {
   .button {
-      height: 50px;
-      width: 200px;
-      margin: 20px;
-      font-size: 25px;
-      border-radius: 30px;
-      background-color:black;
+    height: 50px;
+    width: 200px;
+    margin: 20px;
+    font-size: 25px;
+    border-radius: 30px;
+    background-color: black;
   }
+
   #join-now {
     font-size: 25px;
   }
+
   .catch-phrase {
     font-size: 25px;
   }
+
   #title1part {
     font-size: 37px;
   }
-  
+
   #title2part {
     font-size: 60px;
   }
@@ -376,45 +394,67 @@ nav ul li a.active {
     width: 85%;
     height: 90%;
     border-radius: 30px;
-    
+
   }
-  .first-pages-logos{
+
+  .first-pages-logos {
     height: 180px;
   }
-.food{
-  width: 330px;
-}
-.food-image{
-  width: 130px;
-  height: 130px;
-}
-.food {
-  flex-direction: column-reverse;
-}
-food-post-title{
-  font-size: 1.8em;
-}
-#logout-form button {
-  font-size: 1em;
-}
-.nav-elements{
-  font-size: 1em;
-}
-.nav-welcome{
-  font-size: 1em;
-}
-.feed-container-user{
-  width: 330px;
-  flex-direction: column;
-}
-.nav-user{
-  width: 330px;
-  flex-direction: column;
-}
-.user-data{
-  flex-direction: column;
-}
-.catch-phrese-feed{
-  font-size: 20px;
-}
+
+  .food {
+    width: 330px;
+  }
+
+  .food-image {
+    width: 130px;
+    height: 130px;
+  }
+
+  .food {
+    flex-direction: column-reverse;
+  }
+
+  .food-post-title {
+    font-size: 1.8em;
+  }
+
+  #logout-form button {
+    font-size: 1em;
+  }
+
+  .nav-elements {
+    font-size: 1em;
+  }
+
+  #home-button{
+    font-size: 1em;
+  }
+
+  .nav-welcome {
+    font-size: 1em;
+    
+  }
+
+  .nav-bar{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .feed-container-user {
+    width: 330px;
+    flex-direction: column;
+  }
+
+  .nav-user {
+    width: 330px;
+    flex-direction: column;
+  }
+
+  .user-data {
+    flex-direction: column;
+  }
+
+  .catch-phrese-feed {
+    font-size: 20px;
+  }
 }
