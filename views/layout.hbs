@@ -12,21 +12,15 @@
   <main>
     <nav class="navbar">
       <ul>
-
-  
-        <li class="navbar-left"><a href="/auth/feed">Home</a></li>
+        <li><a class="nav-elements" href="/auth/feed">Home</a></li>
         {{#if user}}
-        <li>Welcome, {{user.username}}!</li>
-        <li class="navbar-center"><a href="/post/post-create">Share Tupper</a></li>
-        <li class="navbar-right"><a href="/user/user-profile">My Profile</a>
-        <li class="navbar-right">
-          <form id="logout-form" action="/auth/logout" method="POST"><button>Logout</button></form>
+        <li class="nav-welcome">Welcome, {{user.username}}!</li>
+        <li><a href="/post/post-create" class="nav-elements">Share Tupper</a></li>
+        <li><a href="/user/user-profile" class="nav-elements">My Profile</a>
+        <li>
+          <form id="logout-form" action="/auth/logout" method="POST"><button class="nav-elements">Logout</button></form>
         </li>
-        {{else}}
-        <li><a href="/auth/login">Login</a></li>
-        <li><a href="/auth/signup">Signup</a></li>
         {{/if}}
-
       </ul>
     </nav>
   </main>
