@@ -57,11 +57,21 @@ ul {
   background-color: rgba(101, 101, 167, 0);
 }
 .nav-welcome {
+
   font-size: 1.5em;
   color: rgb(255, 255, 255);
   text-decoration: none;
   background-color: black;
   border: none;
+}
+.nav-elements {
+
+  font-size: 1.5em;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  background-color: black;
+  border: none;
+
 }
 .nav-elements {
   font-size: 1.5em;
@@ -70,7 +80,6 @@ ul {
   background-color: black;
   border: none;
 
-}
 
 .nav-elements:hover {
   color: yellow
@@ -105,7 +114,7 @@ nav ul li a.active {
 #form-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   gap: 1em;
 }
@@ -277,6 +286,7 @@ nav ul li a.active {
   align-items: center;
   flex-direction: row;
   display: flex;
+  flex-wrap: wrap;
 
 }
 .tupper-shared{
@@ -284,5 +294,9 @@ nav ul li a.active {
   margin: 15px;
   padding: 10px;
   width: 300px;
+
+
+  height: 220px;
+
   border-radius: 2em;
 }

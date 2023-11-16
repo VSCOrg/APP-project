@@ -13,16 +13,16 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 // GET /post/post-create
-router.get("/post-create", (req, res) => {
+router.get("/post-create", isLoggedIn, (req, res) => {
 
     res.render("post/post-create");
 
 });
 
 
-
+const dateOptions = { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' };
 /// POST CREATE
-router.post("/post-create", fileUploader.single('foodImage'), (req, res) => {
+router.post("/post-create", isLoggedIn, fileUploader.single('foodImage'), (req, res) => {
     const user = req.session.currentUser
     const postCreated = req.body
     //const dayFormated = new Date(postCreated.expiringDate)
@@ -31,7 +31,11 @@ router.post("/post-create", fileUploader.single('foodImage'), (req, res) => {
         title: postCreated.title,
         foodImage: req.file.path,
         description: postCreated.description,
+
         expiringDate: dayFormated.getDay(), 
+
+        expiringDate: new Date(postCreated.expiringDate).toLocaleDateString('en-EN', dateOptions), 
+
         pickUpTime: postCreated.pickUpTime,
         pickUpPlace: postCreated.pickUpPlace,
         foodType: postCreated.foodType,
@@ -53,7 +57,7 @@ router.post("/post-create", fileUploader.single('foodImage'), (req, res) => {
 });
 
 // GET /post/post-edit
-router.get("/post-edit", (req, res) => {
+router.get("/post-edit", isLoggedIn, (req, res) => {
     res.render("post/post-edit");
 });
 
@@ -61,13 +65,13 @@ router.get("/post-edit", (req, res) => {
 
 
 // GET /post/post
-router.get("/post", (req, res) => {
+router.get("/post",isLoggedIn, (req, res) => {
     res.render("post/post");
 });
 
 
 //Post / tupper-request
-router.post("/tupper-request", (req, res) => {
+router.post("/tupper-request", isLoggedIn, (req, res) => {
     const { postId } = req.body
     const user = req.session.currentUser
     const requested = true
@@ -96,7 +100,7 @@ router.post("/tupper-request", (req, res) => {
         })
 });
 
-router.post("/tupper-to-delete", (req, res) => {
+router.post("/tupper-to-delete", isLoggedIn, (req, res) => {
     const { postId } = req.body
 
     Foodpost.findById(postId)

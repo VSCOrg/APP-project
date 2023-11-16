@@ -166,7 +166,7 @@ router.post("/logout", isLoggedIn, (req, res) => {
 });
 
 // GET /auth/feed
-router.get("/feed", (req, res) => {
+router.get("/feed",isLoggedIn, (req, res) => {
   const user = req.session.currentUser
   Foodpost.find()
   .populate("creator")
