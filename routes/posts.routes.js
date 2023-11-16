@@ -31,7 +31,11 @@ router.post("/post-create", isLoggedIn, fileUploader.single('foodImage'), (req, 
         title: postCreated.title,
         foodImage: req.file.path,
         description: postCreated.description,
+
+        expiringDate: dayFormated.getDay(), 
+
         expiringDate: new Date(postCreated.expiringDate).toLocaleDateString('en-EN', dateOptions), 
+
         pickUpTime: postCreated.pickUpTime,
         pickUpPlace: postCreated.pickUpPlace,
         foodType: postCreated.foodType,
