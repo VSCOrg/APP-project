@@ -76,6 +76,7 @@ ul {
   background-color: rgba(101, 101, 167, 0);
 }
 
+
 .nav-welcome {
   font-size: 1.5em;
   color: rgb(255, 255, 255);
@@ -434,17 +435,17 @@ nav ul li a.active {
   #home-button{
     font-size: 1em;
   }
-
-  .nav-welcome {
-    font-size: 1em;
-    
-    
-  }
-
   .nav-bar{
     display: flex;
     justify-content: space-around;
+    
   }
+
+  .nav-welcome {
+    font-size: 1em; 
+    
+  }
+
 
   .feed-container-user {
     width: 330px;
@@ -468,9 +469,18 @@ nav ul li a.active {
     margin-left: 1px;
   }
 
-  .mobile-icon {
-    display: flex;
+.mobile-icon {
+    background-color: black;
     color: aliceblue;
     font-size: 1.5em;
+    border: 0px;
+
+}
+#logout-form-icon{
+  background-color: black;
+
+  border: 0px;
+  font-size: 1.5em;
+  
 }
 }
