@@ -82,7 +82,7 @@ ul {
   text-decoration: none;
   background-color: black;
   border: none;
-  margin-left: 10px;
+  margin-left: 25px;
 }
 
 .nav-elements {
@@ -364,6 +364,10 @@ nav ul li a.active {
   flex-direction: row;
 }
 
+.mobile-icon {
+  display: none;
+}
+
 @media (max-width: 450px) {
   .button {
     height: 50px;
@@ -420,6 +424,7 @@ nav ul li a.active {
 
   #logout-form button {
     font-size: 1em;
+    display: none;
   }
 
   .nav-elements {
@@ -432,6 +437,7 @@ nav ul li a.active {
 
   .nav-welcome {
     font-size: 1em;
+    
     
   }
 
@@ -457,4 +463,14 @@ nav ul li a.active {
   .catch-phrese-feed {
     font-size: 20px;
   }
+
+  .username{
+    margin-left: 1px;
+  }
+
+  .mobile-icon {
+    display: flex;
+    color: aliceblue;
+    font-size: 1.5em;
+}
 }
