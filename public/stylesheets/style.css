@@ -471,16 +471,18 @@ nav ul li a.active {
 
 .mobile-icon {
     background-color: black;
-    color: aliceblue;
-    font-size: 1.5em;
-    border: 0px;
+    text-decoration: none;
+    font-size: 1.8em;
+    border: none;
 
 }
 #logout-form-icon{
   background-color: black;
-
-  border: 0px;
-  font-size: 1.5em;
+  text-decoration: none;
+  border: none;
+  width: 1em;
   
 }
+
+
 }
