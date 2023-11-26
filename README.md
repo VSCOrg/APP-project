@@ -1,7 +1,5 @@
 # All You Can Tupper
 
-## The project :
-
 ### What is it?
 An app that allows users to share their food and request other users’ food in a simple, accessible way.
 
